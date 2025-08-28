@@ -2,259 +2,282 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <!-- Meta tags for social media banners -->
+  <meta name="description" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control">
+  <meta property="og:title" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control"/>
+  <meta property="og:description" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <meta name="twitter:title" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control">
+  <meta name="twitter:description" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control">
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Keywords -->
+  <meta name="keywords" content="QinYu, Text-to-Speech, TTS, Speech Generation, Flow Matching Models, Zero-shot Learning, Emotion Control, TME">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="AutoBook: End-to-End Audiobook Narration with Text-to-Timbre and Context-Aware InstructTTS">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
-  <link href="bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="normalize.css">
-  <link rel="stylesheet" href="custom.css">
+
+  <title>QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <title>QinYu-AutoBook: End-to-End Audiobook Narration</title>
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Roboto', Arial, sans-serif; font-size: 0.9rem; }
-    header h1 { font-weight: 700; }
-    .doc-links a { margin: 0 6px; font-size: 0.95rem; }
-    .page-wrap { max-width: 1360px; margin-top: 2.5rem; margin-bottom: 2.5rem; padding-left: 0; padding-right: 0; }
-    .section-card { background: #fff; padding: 2rem !important; margin-top: 1.5rem !important; margin-bottom: 1.5rem !important; }
-    .section-card h2 { font-size: 1.5rem; margin-top: 0; margin-bottom: .75rem; }
-    .page-title { font-size: 1.75rem; margin-top: 0; margin-bottom: .75rem; }
-    .doc-links { margin-top: .25rem; margin-bottom: .5rem; }
-    .section-card p { line-height: 1.6; margin-bottom: .8rem; }
-    @media (max-width: 576px) {
-      body { font-size: 1rem; }
-      .page-wrap { margin-top: 1.5rem; margin-bottom: 1.5rem; padding-left: 0.5rem; padding-right: 0.5rem; }
-      .section-card { padding: 1.25rem !important; margin-top: 1rem !important; margin-bottom: 1rem !important; }
-      .section-card h2 { font-size: 1.35rem; }
-      .page-title { font-size: 1.6rem; }
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  
+<style>
+    .shadow-card {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      overflow-x: auto;
+      width: 100% !important; 
+      max-width: 100% !important; 
+      margin-left: auto !important;
+      margin-right: auto !important;
     }
-  </style>
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      min-width: 800px;
+    }
+    .table th, .table td {
+      padding: 0.75rem;
+      text-align: center !important; /* 确保单元格内容居中 */
+      vertical-align: middle;
+      border: 1px solid #e0e0e0;
+      white-space: nowrap;
+      min-width: 150px;
+    }
+    /* 文本列样式 */
+    .table th:first-child, 
+    .table td:first-child {
+      min-width: 300px;
+      white-space: normal;
+      word-break: break-all;
+    }
+    .table th {
+      background-color: #f5f5f5;
+      font-weight: 600;
+    }
+    /* 关键调整：音频控件居中显示 */
+    audio {
+      width: 100%;
+      max-width: 170px; 
+      box-sizing: border-box;
+      margin: 0 auto; /* 确保音频控件在单元格内水平居中 */
+      display: block; /* 让margin: auto生效 */
+    }
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .container-wider {
+      width: 100%;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    @media screen and (min-width: 1024px) {
+      .container-wider {
+        max-width: 1440px;
+      }
+    }
+    @media screen and (min-width: 1216px) {
+      .container-wider {
+        max-width: 1600px;
+      }
+    }
+    @media screen and (max-width: 1023px) {
+      .container-wider {
+        max-width: 90%;
+      }
+    }
+</style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
 </head>
 <body>
 
-<div class="container page-wrap">
-  <header role="banner">
-  </header>
-  <main role="main">
-    <article itemscope itemtype="https://schema.org/BlogPosting">
-
-      <div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded section-card">
-        <div class="text-center">
-          <h2 class="page-title">QinYu-AutoBook: End-to-End Audiobook Narration with Text-to-Timbre and Context-Aware Instruct Text to Speech</h2>
-          <div class="doc-links mt-2">
-            [<a href="https://arxiv.org/abs/2412.10117" target="_blank">Paper</a>]
-            [<a href="#" target="_blank">Code</a>]
-            [<a href="#" target="_blank">Studio</a>]
-            [<a href="#" target="_blank">HuggingFace</a>]
-            [<a href="#" target="_blank">ModelScope</a>]
+  <!-- Hero Section: Title & Authors -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">QinYu Team</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">TME Lyra Lab</span>
+            </div>
           </div>
-          <p class="fst-italic mb-0">
-            <br>
-            QinYu Team
-          <p></p>
-          </p>
-          <p><b>TME-Lyra-Lab@Tencent</b></p>
-        </div>
-        <p><b>Abstract:</b>
-          The production of traditional multi-participant audiobooks is costly and heavily relies on manual effort. Despite progress in neural TTS, generating specific character voices from abstract textual descriptions and ensuring prosody consistency with the narrative context in zero-shot scenarios remain challenging. This paper proposes AutoBook, an end-to-end system for automated audiobook synthesis. It consists of two core stages: (1) A Text-to-Timbre (TTT) model based on a Conditional Flow Matching framework with a Diffusion Transformer (DiT) backbone, which converts structured text descriptions (e.g., "a young male sword cultivator") into target speaker embeddings. The model is conditioned on text embeddings from Qwen3-0.6B, explicit gender labels, and temporal information injected via FiLM. (2) A Context-Aware InstructTTS (CA-InstructTTS) model, built upon the CosyVoice architecture, which incorporates context-aware instruction learning. A large language model (DeepSeek) parses emotions and scenarios (e.g., "excited|first contact with something novel") from the narrative context. These instructions, combined with the generated speaker embedding from TTT, drive the TTS to synthesize expressive speech. Trained on a large-scale audiobook dataset (4000+ hours), we open-source the BookVoice-50h dataset, containing 50k 
-			<text description, speaker embedding> pairs. Subjective and objective evaluations show that our TTT model outperforms cluster-based retrieval and conditional GAN baselines in Semantic Matching Score (SMS). The complete AutoBook system synthesizes audiobook audio with high naturalness and contextual appropriateness, offering a practical solution for industrial-scale automated production of high-quality multi-participant audiobooks
-        <p style="text-align: center;">
-          <img src="static/images/model.png" style="max-width:100%; height:auto;" alt="model diagram">
-        </p>
-
-
-                              <p class="mt-4">
-                        <b>Contents</b>
-                        <ul>
-                          <li><a href="#Text-to-Timbre">Text-to-Timbre</a></li>
-                          <li><a href="#Context-Aware-InstructTTS">Context-Aware InstructTTS</a></li>
-                          <li><a href="#Chapter-Demo">Chapter Demo</a></li>
-                        </ul>
-                      </p>
-      </div>
-
-      <div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded section-card">
-        <h2 id="Text-to-Timbre" style="text-align: center;">Text-to-Timbre</h2>
-        <div class="table-responsive pt-3">
-          <table class="table table-hover pt-2">
-            <thead>
-              <tr>
-                <th style="vertical-align: middle;text-align: center">Category</th>
-                <th style="vertical-align: middle;text-align: center">TTT Prompt</th>
-                <th style="vertical-align: middle;text-align: center">CA-Instruct-TTS Prompt</th>
-                <th style="vertical-align: middle;text-align: center">Generated</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;" rowspan="4">Child</td>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个幼儿男性，身份是农家小儿，性格憨厚耿直、认死理，气质质朴干净。</td>
-                <td style="vertical-align: middle;text-align:center;">斩钉截铁|被质疑时的直白辩解|"我没说谎！这就是我看到的样子！你不信就算了！"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/1.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个幼儿女性，身份是世家千金，性格活泼机敏、爱撒娇，气质天真灵动。</td>
-                <td style="vertical-align: middle;text-align:center;">撒娇|向长辈讨要东西时的快语|"娘亲娘亲！你看那个糖人，翅膀亮晶晶的！给我买一个嘛～"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/2.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个幼儿女性，身份是绣坊小徒，性格耐心细致、指尖灵巧，气质娴静乖巧。</td>
-                <td style="vertical-align: middle;text-align:center;">思考|做手工时的轻柔自语|"一针… 一线… 要绣得整整齐齐的，师父才会夸我。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/3.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个幼儿女性，身份是小郡主/公主，性格骄慢却善良、爱助人，气质高贵带娇憨。</td>
-                <td style="vertical-align: middle;text-align:center;">关切|看到他人困难时的别扭关心|"哼，你怎么这么笨！这点事都做不好，我… 我帮你就是了！"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/4.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;" rowspan="4">Youth</td>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个青年男性，身份是画师/书生，性格敏感细腻、爱采风，气质清雅忧郁，音色轻柔，语调舒缓</td>
-                <td style="vertical-align: middle;text-align:center;">感慨|触景生情时的轻叹|"这花开得再好，也有谢的时候… 就像人间聚散。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/26.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个青年男性，身份是酿酒师/工匠，性格踏实执拗、重手艺，气质质朴热忱，音色粗亮，带烟火气</td>
-                <td style="vertical-align: middle;text-align:center;">思考|做手艺时的自语|"这活儿得细着来，差一分都不行… 手艺可不能丢。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/27.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个青年女性，身份是宗门圣女/仙子，性格清冷高傲、不食烟火，气质高洁矜持，音色清越冰冷，语调平淡</td>
-                <td style="vertical-align: middle;text-align:center;">冷漠|拒绝他人时的平淡语调|"凡尘情爱，不过镜花水月。你我殊途，请回吧。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/31.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个青年女性，身份是医者/药师，性格温婉善良、细腻包容，气质清雅含蓄，音色柔和温暖，语速舒缓</td>
-                <td style="vertical-align: middle;text-align:center;">关切|安抚受伤者时的轻语|"乖，吃了这糖丸就不疼了。让姐姐看看伤口，很快就好。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/32.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;" rowspan="4">Middle-aged</td>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个中年男性，身份是王朝将军，性格铁血威严、霸气侧漏，气质不怒自威</td>
-                <td style="vertical-align: middle;text-align:center;">坚定|阵前发布指令时的呐喊|"三军听令！擂鼓，进军！后退者，斩！"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/41.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个中年男性，身份是山村猎户/农夫，性格朴实憨厚、沉默寡言，气质质朴善良</td>
-                <td style="vertical-align: middle;text-align:center;">关切|拒绝陌生人时的缓慢回应|"山里？不去不去。那林子邪乎，城里人莫要去送死。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/46.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个中年女性，身份是隐居高手/毒师，性格古怪孤僻、手段狠辣，气质阴郁危险</td>
-                <td style="vertical-align: middle;text-align:center;">嘲讽|嘲讽对手时的冷笑|"就这点本事也敢来？你的毒，给我家狗当洗脚水都不配！"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/56.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个中年女性，身份是丧夫寡妇/孤母，性格忧郁坚韧、撑家计，气质悲苦却倔强</td>
-                <td style="vertical-align: middle;text-align:center;">悲伤|丧亲后的泣诉|"你个死鬼… 丢下我们娘俩… 但我会撑下去的… 一定……"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/59.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;" rowspan="4">Elderly</td>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个老年男性，身份是退隐老帝/太上皇，性格深不可测、威势犹存，气质泰山压顶</td>
-                <td style="vertical-align: middle;text-align:center;">严厉|谈及权势时的低语|"这天下，终究还是朕的天下。有些人，手伸太长了。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/61.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个老年男性，身份是家族老祖/活化石，性格慈祥护短、偶尔顽皮，气质深藏不露</td>
-                <td style="vertical-align: middle;text-align:center;">宠溺|逗晚辈时的苍老声|"小皮猴，又想掏曾祖的葫芦？来，让我看看你根基练得如何。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/62.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个老年女性，身份是慈祥祖母/接生婆，性格唠唠叨叨、心地善良，气质温暖和蔼</td>
-                <td style="vertical-align: middle;text-align:center;">宠溺|哄孩子时的轻哼|"哦哦哦～宝宝乖，睡觉觉～奶奶的小心肝哟…"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/72.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个老年女性，身份是庵主/道姑，性格清心寡欲、洞察世情，气质冷静出尘</td>
-                <td style="vertical-align: middle;text-align:center;">冷漠|拒绝访客时的语调|"红尘已断，施主请回。青灯古佛，便是归宿。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/73.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;" rowspan="4">Non-human</td>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个非人类树精（中年男性），身份是古木灵/山林守护者，性格沉稳寡言、爱自然，气质古老带绿意</td>
-                <td style="vertical-align: middle;text-align:center;">感慨|抚花叶时的叹息|"又一个百年过去了… 当年种我的人，如今轮回成了谁呢？"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/82.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个非人类猫妖（青年女性），身份是宠妖/捣蛋精，性格慵懒狡黠、好奇心重，气质妩媚灵活</td>
-                <td style="vertical-align: middle;text-align:center;">撒娇|索要食物时的鼻音|"嗯～今天太阳真好呀… 小鱼干呢？没有就不干活哦。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/87.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个非人类机器人（中性），身份是星际AI副官，性格冷静高效、绝对忠诚，气质可靠</td>
-                <td style="vertical-align: middle;text-align:center;">平静|报告情况时的电子音|"航线清晰，无异常波动。舰体完整性 100%。愿为您服务。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/93.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个非人类混沌灵火（无性别），身份是先天灵物/破坏者，性格顽皮毁灭、不可测，气质危险灼热</td>
-                <td style="vertical-align: middle;text-align:center;">兴奋|跳跃时的童声|"嘻嘻～烧起来啦！好看！真好玩！再来多一点！"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/97.wav"/></audio></td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
-
-      <div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded section-card">
-        <h2 id="Context-Aware-InstructTTS" style="text-align: center;">Context-Aware InstructTTS</h2>
-        <div class="table-responsive pt-3">
-          <table class="table table-hover pt-2">
-            <thead>
-              <tr>
-                <th style="vertical-align: middle;text-align: center">Speaker</th>
-                <th style="vertical-align: middle;text-align: center">Emotional Scene Prompt</th>
-                <th style="vertical-align: middle;text-align: center">Generated</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">Speaker A</td>
-                <td style="vertical-align: middle;text-align:center;">—</td>
-                <td style="vertical-align: middle;text-align:center;">—</td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">Speaker B</td>
-                <td style="vertical-align: middle;text-align:center;">—</td>
-                <td style="vertical-align: middle;text-align:center;">—</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded section-card">
-        <h2 id="Chapter-Demo" style="text-align: center;">Chapter Demo</h2>
-        <div class="table-responsive pt-3">
-          <table class="table table-hover pt-2">
-            <thead>
-              <tr>
-                <th style="vertical-align: middle;text-align: center">Text</th>
-                <th style="vertical-align: middle;text-align: center">Generated</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">—</td>
-                <td style="vertical-align: middle;text-align:center;">—</td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">—</td>
-                <td style="vertical-align: middle;text-align:center;">—</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded section-card">
-        <h2 style="text-align: center;">Disclaimer</h2>
-        <p>The content provided above is for academic purposes only and is intended to demonstrate technical capabilities. Some examples are sourced from the internet. If any content infringes on your rights, please contact us to request its removal.</p>
     </div>
+  </section>
 
-    </article>
-  </main>
+  <!-- Paper Abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>We introduce QinYu, a high-fidelity text-to-speech system engineered to deliver speech with exceptional naturalness, 32kHz studio-quality audio, spontaneous colloquialism for conversational scenarios like podcasts, and fine-grained emotional control for narrative contexts like audiobooks. QinYu excels in generating natural paralinguistic elements such as authentic laughter and precise prosodic pauses, surpassing the 22kHz limit of most open-source TTS systems. Its scenario-specific variants include QinYuCast, which automates insertion of colloquial artifacts like pauses and hesitations for spontaneous dialogue, and QinYuInstruct, which enables emotion specification via natural language descriptions like "warm" or "excited". Future iterations will advance an "ALL-in-One" architecture built on a million-hour-scale base model, integrating controllable paralinguistic tagging, adjustable colloquialism strength, large-model enhancements, and novel voice generation capabilities, bridging the gap between synthetic and human speech across diverse TTS applications.</p>
+            <!-- Contents Navigation -->
+            <div class="mt-6">
+              <h3 class="title is-5 has-text-centered">Contents</h3>
+              <ul class="list-disc pl-6 mt-2">
+                <li><a href="#model-overview" class="link">System Overview</a></li>
+                <li><a href="#Paralanguage-TTS" class="link">Paralanguage TTS</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. System Overview -->
+  <section id="model-overview" class="section">
+    <div class="container-wider">
+      <div class="shadow-card">
+        <h2 class="title is-3 has-text-centered">System Overview</h2>
+        <div class="columns is-centered">
+          <div class="column is-full has-text-centered">
+            <img src="static/overview.jpeg" alt="QinYu System Overview" style="max-width: 100%; height: auto; max-height: 400px; margin: 1rem 0;">
+            <p class="is-size-6 has-text-weight-semibold mt-2">
+              Figure 1. An overview of the QinYu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="Paralanguage-TTS" class="section">
+  <div class="container-wider">
+    <div class="shadow-card">
+      <h2 class="title is-3 has-text-centered">Paralanguage TTS</h2>
+      <div class="table-responsive">
+        <table class="table" style="border: 1px solid #e0e0e0; border-bottom: none; table-layout: auto;">
+          <thead>
+            <tr>
+              <th style="vertical-align: middle; background: #3498db; color: white; width: 25%;">Text</th>
+              <th style="vertical-align: middle; background: #3498db; color: white;">Prompt</th>
+              <th style="vertical-align: middle; background: #3498db; color: white;">CosyVoice2</th>
+              <th style="vertical-align: middle; background: #3498db; color: white;">GPT-Sovits</th>
+              <th style="vertical-align: middle; background: #3498db; color: white;">ChatTTS</th>
+              <th style="vertical-align: middle; background: #3498db; color: white;">QinYu</th>
+            </tr>
+          </thead>
+          <tbody id="audioTableBody"></tbody>
+        </table>
+      </div>
+    </div>
   </div>
+</section>
 
-  </body>
-  </html>
+<script>
+// 1. 定义三个循环列表
+const tasks = ["laugh"];
+const texts = [
+  { content: "你上次说减肥，结果半夜发朋友圈“烧烤配奶茶，快乐似神仙”。哈哈哈， 这波自我攻略我服！", number: "1" },
+  { content: "你上次说减肥，结果半夜发朋友圈“烧烤配奶茶，快乐似神仙”。哈哈哈， 这波自我攻略我服！", number: "2" },
+  { content: "呵呵，聪明！不过凶手漏了个细节", number: "3" },
+  { content: "哈哈，那顿饭真是难以下咽，我到现在还记得那个味道！", number: "4" },
+  { content: "这猫上树时那表情，像极了周一上班的我，哈哈哈哈。", number: "5" },
+];
+const models = ["Prompt", "CosyVoice2", "GPT-Sovits", "ChatTTS", "QinYu"];
+
+// 2. 获取表格tbody容器
+const tableBody = document.getElementById("audioTableBody");
+
+// 3. 生成表格内容
+tasks.forEach(task => {
+  texts.forEach((text, textIndex) => {
+    const row = document.createElement("tr");
+    const isLastRow = textIndex === texts.length - 1 && task === tasks[tasks.length - 1];
+    const borderStyle = isLastRow ? "border: 1px solid #e0e0e0; border-top: 1px solid #e0e0e0 !important; border-bottom: 1px solid #e0e0e0 !important;" : "border: 1px solid #e0e0e0;";
+
+    // 文本列
+    const textCell = document.createElement("td");
+    textCell.style = `${borderStyle} vertical-align: middle; width: 25%; word-break: break-all; white-space: normal; padding: 8px;`;
+    textCell.textContent = text.content;
+    row.appendChild(textCell);
+
+    // 音频列（保持居中样式）
+    models.forEach((model, modelIndex) => {
+      const audioCell = document.createElement("td");
+      const cellStyle = isLastRow && modelIndex === models.length - 1 
+        ? `${borderStyle} border-right: 1px solid #e0e0e0 !important; vertical-align: middle; padding: 8px;` 
+        : `${borderStyle} vertical-align: middle; padding: 8px;`;
+      audioCell.style = cellStyle;
+
+      // 音频元素保持居中
+      audioCell.innerHTML = `
+        <audio controls>
+          <source src="audios/${task}/${model}/${text.number}.wav" type="audio/wav">
+          浏览器不支持音频播放
+        </audio>
+      `;
+      row.appendChild(audioCell);
+    });
+
+    tableBody.appendChild(row);
+  });
+});
+</script>
+
+  <!-- BibTeX Citation -->
+  <section class="section" id="BibTeX">
+    <div class="container-wider content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{qinyu-2025,
+  title={QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control},
+  author={QinYu Team},
+  year={2025}
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> (adopted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>).
+              <br> Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
