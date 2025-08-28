@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="custom.css">
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <title>AutoBook: End-to-End Audiobook Narration</title>
+  <title>QinYu-AutoBook: End-to-End Audiobook Narration</title>
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Roboto', Arial, sans-serif; font-size: 0.9rem; }
@@ -40,7 +40,7 @@
 
       <div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded section-card">
         <div class="text-center">
-          <h2 class="page-title">AutoBook: End-to-End Audiobook Narration with Text-to-Timbre and Context-Aware Instruct Text to Speech</h2>
+          <h2 class="page-title">QinYu-AutoBook: End-to-End Audiobook Narration with Text-to-Timbre and Context-Aware Instruct Text to Speech</h2>
           <div class="doc-links mt-2">
             [<a href="https://arxiv.org/abs/2412.10117" target="_blank">Paper</a>]
             [<a href="#" target="_blank">Code</a>]
@@ -53,11 +53,11 @@
             QinYu Team
           <p></p>
           </p>
-          <p><b>TME</b></p>
+          <p><b>TME-Lyra-Lab@Tencent</b></p>
         </div>
         <p><b>Abstract:</b>
-          The production of traditional multi-voice audiobooks is costly and heavily relies on manual effort. Despite progress in neural TTS, generating specific character voices from abstract textual descriptions and ensuring prosody consistency with the narrative context in zero-shot scenarios remain challenging. This paper proposes AutoBook, an end-to-end system for automated audiobook synthesis. It consists of two core stages: (1) A Text-to-Timbre (TTT) model based on a Conditional Flow Matching framework with a Diffusion Transformer (DiT) backbone, which converts structured text descriptions (e.g., "a young male sword cultivator") into target speaker embeddings. The model is conditioned on text embeddings from Qwen3-0.6B, explicit gender labels, and temporal information injected via FiLM. (2) A Context-Aware InstructTTS (CA-InstructTTS) model, built upon the CosyVoice architecture, which incorporates context-aware instruction learning. A large language model (DeepSeek) parses emotions and scenarios (e.g., "excited|first contact with something novel") from the narrative context. These instructions, combined with the generated speaker embedding from TTT, drive the TTS to synthesize expressive speech. Trained on a large-scale audiobook dataset (4000+ hours), we open-source the BookVoice-50h dataset, containing 50k 
-			<text description, speaker embedding> pairs. Subjective and objective evaluations show that our TTT model outperforms cluster-based retrieval and conditional GAN baselines in Semantic Matching Score (SMS). The complete AutoBook system synthesizes audiobook audio with high naturalness and contextual appropriateness, offering a practical solution for industrial-scale automated production of high-quality multi-voice audiobooks
+          The production of traditional multi-participant audiobooks is costly and heavily relies on manual effort. Despite progress in neural TTS, generating specific character voices from abstract textual descriptions and ensuring prosody consistency with the narrative context in zero-shot scenarios remain challenging. This paper proposes AutoBook, an end-to-end system for automated audiobook synthesis. It consists of two core stages: (1) A Text-to-Timbre (TTT) model based on a Conditional Flow Matching framework with a Diffusion Transformer (DiT) backbone, which converts structured text descriptions (e.g., "a young male sword cultivator") into target speaker embeddings. The model is conditioned on text embeddings from Qwen3-0.6B, explicit gender labels, and temporal information injected via FiLM. (2) A Context-Aware InstructTTS (CA-InstructTTS) model, built upon the CosyVoice architecture, which incorporates context-aware instruction learning. A large language model (DeepSeek) parses emotions and scenarios (e.g., "excited|first contact with something novel") from the narrative context. These instructions, combined with the generated speaker embedding from TTT, drive the TTS to synthesize expressive speech. Trained on a large-scale audiobook dataset (4000+ hours), we open-source the BookVoice-50h dataset, containing 50k 
+			<text description, speaker embedding> pairs. Subjective and objective evaluations show that our TTT model outperforms cluster-based retrieval and conditional GAN baselines in Semantic Matching Score (SMS). The complete AutoBook system synthesizes audiobook audio with high naturalness and contextual appropriateness, offering a practical solution for industrial-scale automated production of high-quality multi-participant audiobooks
         <p style="text-align: center;">
           <img src="static/images/model.png" style="max-width:100%; height:auto;" alt="model diagram">
         </p>
