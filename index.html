@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners -->
+  <meta name="description" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control">
+  <meta property="og:title" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control"/>
+  <meta property="og:description" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <meta name="twitter:title" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control">
+  <meta name="twitter:description" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control">
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Keywords -->
+  <meta name="keywords" content="QinYu, Text-to-Speech, TTS, Speech Generation, Flow Matching Models, Zero-shot Learning, Emotion Control, TME">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  
+<style>
+    .shadow-card {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      overflow-x: auto;
+      width: 100% !important; 
+      max-width: 100% !important; 
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      min-width: 800px;
+    }
+    .table th, .table td {
+      padding: 0.75rem;
+      text-align: center !important; /* 确保单元格内容居中 */
+      vertical-align: middle;
+      border: 1px solid #e0e0e0;
+      white-space: nowrap;
+      min-width: 150px;
+    }
+    /* 文本列样式 */
+    .table th:first-child, 
+    .table td:first-child {
+      min-width: 300px;
+      white-space: normal;
+      word-break: break-all;
+    }
+    .table th {
+      background-color: #f5f5f5;
+      font-weight: 600;
+    }
+    /* 关键调整：音频控件居中显示 */
+    audio {
+      width: 100%;
+      max-width: 170px; 
+      box-sizing: border-box;
+      margin: 0 auto; /* 确保音频控件在单元格内水平居中 */
+      display: block; /* 让margin: auto生效 */
+    }
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .container-wider {
+      width: 100%;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    @media screen and (min-width: 1024px) {
+      .container-wider {
+        max-width: 1440px;
+      }
+    }
+    @media screen and (min-width: 1216px) {
+      .container-wider {
+        max-width: 1600px;
+      }
+    }
+    @media screen and (max-width: 1023px) {
+      .container-wider {
+        max-width: 90%;
+      }
+    }
+</style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+  <!-- Hero Section: Title & Authors -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">QinYu Team</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">TME Lyra Lab</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paper Abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>We introduce QinYu, a high-fidelity text-to-speech system engineered to deliver speech with exceptional naturalness, 32kHz studio-quality audio, spontaneous colloquialism for conversational scenarios like podcasts, and fine-grained emotional control for narrative contexts like audiobooks. QinYu excels in generating natural paralinguistic elements such as authentic laughter and precise prosodic pauses, surpassing the 22kHz limit of most open-source TTS systems. Its scenario-specific variants include QinYuCast, which automates insertion of colloquial artifacts like pauses and hesitations for spontaneous dialogue, and QinYuInstruct, which enables emotion specification via natural language descriptions like "warm" or "excited". Future iterations will advance an "ALL-in-One" architecture built on a million-hour-scale base model, integrating controllable paralinguistic tagging, adjustable colloquialism strength, large-model enhancements, and novel voice generation capabilities, bridging the gap between synthetic and human speech across diverse TTS applications.</p>
+            <!-- Contents Navigation -->
+            <div class="mt-6">
+              <h3 class="title is-5 has-text-centered">Contents</h3>
+              <ul class="list-disc pl-6 mt-2">
+                <li><a href="#model-overview" class="link">System Overview</a></li>
+                <li><a href="#Paralanguage-TTS" class="link">Paralanguage TTS</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. System Overview -->
+  <section id="model-overview" class="section">
+    <div class="container-wider">
+      <div class="shadow-card">
+        <h2 class="title is-3 has-text-centered">System Overview</h2>
+        <div class="columns is-centered">
+          <div class="column is-full has-text-centered">
+            <img src="static/overview.jpeg" alt="QinYu System Overview" style="max-width: 100%; height: auto; max-height: 400px; margin: 1rem 0;">
+            <p class="is-size-6 has-text-weight-semibold mt-2">
+              Figure 1. An overview of the QinYu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="Paralanguage-TTS" class="section">
+  <div class="container-wider">
+    <div class="shadow-card">
+      <h2 class="title is-3 has-text-centered">Paralanguage TTS</h2>
+      <div class="table-responsive">
+        <table class="table" style="border: 1px solid #e0e0e0; border-bottom: none; table-layout: auto;">
+          <thead>
+            <tr>
+              <th style="vertical-align: middle; background: #3498db; color: white; width: 25%;">Text</th>
+              <th style="vertical-align: middle; background: #3498db; color: white;">Prompt</th>
+              <th style="vertical-align: middle; background: #3498db; color: white;">CosyVoice2</th>
+              <th style="vertical-align: middle; background: #3498db; color: white;">GPT-Sovits</th>
+              <th style="vertical-align: middle; background: #3498db; color: white;">ChatTTS</th>
+              <th style="vertical-align: middle; background: #3498db; color: white;">QinYu</th>
+            </tr>
+          </thead>
+          <tbody id="audioTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// 1. 定义三个循环列表
+const tasks = ["laugh"];
+const texts = [
+  { content: "你上次说减肥，结果半夜发朋友圈“烧烤配奶茶，快乐似神仙”。哈哈哈， 这波自我攻略我服！", number: "1" },
+  { content: "你上次说减肥，结果半夜发朋友圈“烧烤配奶茶，快乐似神仙”。哈哈哈， 这波自我攻略我服！", number: "2" },
+  { content: "呵呵，聪明！不过凶手漏了个细节", number: "3" },
+  { content: "哈哈，那顿饭真是难以下咽，我到现在还记得那个味道！", number: "4" },
+  { content: "这猫上树时那表情，像极了周一上班的我，哈哈哈哈。", number: "5" },
+];
+const models = ["Prompt", "CosyVoice2", "GPT-Sovits", "ChatTTS", "QinYu"];
+
+// 2. 获取表格tbody容器
+const tableBody = document.getElementById("audioTableBody");
+
+// 3. 生成表格内容
+tasks.forEach(task => {
+  texts.forEach((text, textIndex) => {
+    const row = document.createElement("tr");
+    const isLastRow = textIndex === texts.length - 1 && task === tasks[tasks.length - 1];
+    const borderStyle = isLastRow ? "border: 1px solid #e0e0e0; border-top: 1px solid #e0e0e0 !important; border-bottom: 1px solid #e0e0e0 !important;" : "border: 1px solid #e0e0e0;";
+
+    // 文本列
+    const textCell = document.createElement("td");
+    textCell.style = `${borderStyle} vertical-align: middle; width: 25%; word-break: break-all; white-space: normal; padding: 8px;`;
+    textCell.textContent = text.content;
+    row.appendChild(textCell);
+
+    // 音频列（保持居中样式）
+    models.forEach((model, modelIndex) => {
+      const audioCell = document.createElement("td");
+      const cellStyle = isLastRow && modelIndex === models.length - 1 
+        ? `${borderStyle} border-right: 1px solid #e0e0e0 !important; vertical-align: middle; padding: 8px;` 
+        : `${borderStyle} vertical-align: middle; padding: 8px;`;
+      audioCell.style = cellStyle;
+
+      // 音频元素保持居中
+      audioCell.innerHTML = `
+        <audio controls>
+          <source src="audios/${task}/${model}/${text.number}.wav" type="audio/wav">
+          浏览器不支持音频播放
+        </audio>
+      `;
+      row.appendChild(audioCell);
+    });
+
+    tableBody.appendChild(row);
+  });
+});
+</script>
+
+  <!-- BibTeX Citation -->
+  <section class="section" id="BibTeX">
+    <div class="container-wider content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{qinyu-2025,
+  title={QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control},
+  author={QinYu Team},
+  year={2025}
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> (adopted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>).
+              <br> Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
