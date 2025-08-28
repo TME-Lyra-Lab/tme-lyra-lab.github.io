@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners -->
+  <meta name="description" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control">
+  <meta property="og:title" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control"/>
+  <meta property="og:description" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <meta name="twitter:title" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control">
+  <meta name="twitter:description" content="QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control">
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Keywords -->
+  <meta name="keywords" content="QinYu, Text-to-Speech, TTS, Speech Generation, Flow Matching Models, Zero-shot Learning, Emotion Control, TME">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+<style>
+    .shadow-card {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      /* 新增：防止卡片内内容溢出，配合表格滚动 */
+      overflow-x: auto;
+    }
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      /* 新增：确保表格最小宽度能容纳所有列（根据列数和内容调整） */
+      min-width: 1200px; /* 6列×200px基础宽度，可根据实际列数微调 */
+    }
+    .table th, .table td {
+      padding: 0.75rem;
+      text-align: center;
+      vertical-align: middle;
+      border: 1px solid #e0e0e0;
+      /* 新增：防止单元格内文本换行挤压（如需换行可删除） */
+      white-space: nowrap;
+      /* 新增：给单元格设置最小宽度，避免被过度挤压 */
+      min-width: 150px;
+    }
+    /* 单独给"Prompt"列加宽（如需，可根据内容调整） */
+    .table th:first-child, 
+    .table td:first-child {
+      min-width: 180px;
+    }
+    .table th {
+      background-color: #f5f5f5;
+      font-weight: 600;
+    }
+    audio {
+      width: 100%;
+      /* 调整：适当放宽音频控件最大宽度，避免被挤压变形 */
+      max-width: 170px; 
+      /* 新增：确保音频控件不超出单元格边界 */
+      box-sizing: border-box;
+    }
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+    /* 新增：优化表格容器的响应式滚动体验 */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto; /* 当屏幕变窄时，表格可横向滚动，边界不被截断 */
+    }
+</style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+  <!-- Hero Section: Title & Authors -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">QinYu Team</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">TME Lyra Lab</span>
+            </div>
+
+            <!-- Publication Links -->
+            <!-- <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2406.02430.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2406.02430" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/YOUR REPO HERE" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code (Coming Soon)</span>
+                  </a>
+                </span>
+              </div>
+            </div> -->
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paper Abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              We introduce QinYu.
+            </p>
+
+            <!-- Contents Navigation -->
+            <div class="mt-6">
+              <h3 class="title is-5 has-text-centered">Contents</h3>
+              <ul class="list-disc pl-6 mt-2">
+                <li><a href="#model-overview" class="link">System Overview</a></li>
+                <li><a href="#zero-shot-icl-samples" class="link">Zero-shot In-context Learning</a></li>
+                <li><a href="#speaker-finetune-samples" class="link">Speaker Fine-tune & Emotion Control</a></li>
+                <li><a href="#speech-factorization-samples" class="link">Speech Factorization (Zero-shot Voice Conversion)</a></li>
+                <li><a href="#rl-samples" class="link">Preference Biasing Through Reinforcement Learning</a></li>
+                <li><a href="#full-diffusion-samples" class="link">Fully Diffusion-based Speech Generation (Seed-TTS<sub>DiT</sub>)</a></li>
+                <li><a href="#applications-samples" class="link">Model Applications</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. System Overview -->
+  <section id="model-overview" class="section">
+    <div class="container is-max-desktop">
+      <div class="shadow-card">
+        <h2 class="title is-3 has-text-centered">System Overview</h2>
+        <div class="columns is-centered">
+          <div class="column is-full has-text-centered">
+            <img src="pics/overview.jpeg" alt="Seed-TTS System Overview" style="max-width: 100%; height: auto; max-height: 400px; margin: 1rem 0;">
+            <p class="is-size-6 has-text-weight-semibold mt-2">
+              Figure 1. An overview of the Seed-TTS inference pipeline. (1) The speech tokenizer learns tokens from reference speech. (2) The autoregressive language model generates speech tokens based on text and reference speech. (3) The diffusion transformer generates continuous speech representations from tokens (coarse-to-fine). (4) The acoustic vocoder outputs high-quality speech.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Zero-shot In-context Learning -->
+<section id="zero-shot-icl-samples" class="section">
+    <div class="container is-max-desktop">
+      <div class="shadow-card">
+        <h2 class="title is-3 has-text-centered">Zero-shot In-context Learning</h2>
+        <div class="table-responsive">
+          <!-- 1. 给表格添加统一外边框，避免最后一行边框与容器脱节 -->
+          <table class="table" style="border: 1px solid #e0e0e0; border-bottom: none;">
+            <thead>
+              <tr>
+                <th style="vertical-align: middle; background-color: #3498db; color: white;">Language</th>
+                <th style="vertical-align: middle; background-color: #3498db; color: white;">Prompt</th>
+                <th style="vertical-align: middle; background-color: #3498db; color: white;">Same Language Generation</th>
+                <th style="vertical-align: middle; background-color: #3498db; color: white;">Cross Language Generation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- EN Samples -->
+              <tr>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;" rowspan="3">EN</td>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/EN/prompt/4245145269330795065.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                </td>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/EN/generated/-7098819224143199853.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                  <p class="is-size-7 mt-1">I don't really care what you call me... (full text in original content)</p>
+                </td>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/EN2ZH/accent/-7059551132412457673.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                  <p class="is-size-7 mt-1">顿时，气氛变得沉郁起来... (full text in original content)</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/EN/prompt/2486365921931244890.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                </td>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/EN/generated/-4022654511881686103.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                  <p class="is-size-7 mt-1">Dealing with family secrets is never easy... (full text in original content)</p>
+                </td>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/EN2ZH/accent/5923897317977078708.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                  <p class="is-size-7 mt-1">处理家庭秘密从来都不是一件容易的事... (full text in original content)</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/EN/prompt/-9102975986427238220.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                </td>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/EN/generated/-5711578405326350279.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                  <p class="is-size-7 mt-1">The combinations of different textures... (full text in original content)</p>
+                </td>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/EN2ZH/accent/-2440558962308447419.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                  <p class="is-size-7 mt-1">听着你的话，我心里五味杂陈... (full text in original content)</p>
+                </td>
+              </tr>
+              <!-- ZH Samples -->
+              <tr>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;" rowspan="3">ZH</td>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/ZH/prompt/2648200402409733590.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                </td>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/ZH/generated/-7282572289945892805.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                  <p class="is-size-7 mt-1">突然，身边一阵笑声... (full text in original content)</p>
+                </td>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/ZH2EN/accent/5590663915455029645.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                  <p class="is-size-7 mt-1">Suddenly, there was a burst of laughter... (full text in original content)</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/ZH/prompt/8913957783621352198.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                </td>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/ZH/generated/33126387539052788.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                  <p class="is-size-7 mt-1">他闭上眼睛，期望这一切都能过去... (full text in original content)</p>
+                </td>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/ZH2EN/accent/4097919761234836261.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                  <p class="is-size-7 mt-1">He closed his eyes, expecting that all of this... (full text in original content)</p>
+                </td>
+              </tr>
+              <!-- 2. 重点修复：给最后一行所有单元格强制添加完整边框 -->
+              <tr>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0; border-top: 1px solid #e0e0e0 !important;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/ZH/prompt/2631296891109983590.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                </td>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0; border-top: 1px solid #e0e0e0 !important; border-bottom: 1px solid #e0e0e0 !important;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/ZH/generated/1784230488994154020.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                  <p class="is-size-7 mt-1">顿时，气氛变得沉郁起来... (full text in original content)</p>
+                </td>
+                <td style="vertical-align: middle; border: 1px solid #e0e0e0; border-top: 1px solid #e0e0e0 !important; border-bottom: 1px solid #e0e0e0 !important; border-right: 1px solid #e0e0e0 !important;">
+                  <audio controls>
+                    <source src="audios/ZeroShotICL_samples/ZH2EN/accent/6646045659975963496.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                   </audio>
+                  <p class="is-size-7 mt-1">Suddenly, the atmosphere became gloomy... (full text in original content)</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BibTeX Citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{qinyu-2025,
+  title={QinYu: A High Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism and Emotional Control},
+  author={QinYu Team},
+  year={2025}
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> (adopted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>).
+              <br> Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
