@@ -24,6 +24,7 @@
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
+  <!-- 样式文件引入（确保路径正确） -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="static/css/bulma-slider.min.css">
@@ -31,8 +32,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
-  
-<style>
+  <!-- 自定义样式（统一表格和控件样式） -->
+  <style>
     .shadow-card {
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       border-radius: 8px;
@@ -53,30 +54,30 @@
     }
     .table th, .table td {
       padding: 0.75rem;
-      text-align: center !important; /* 确保单元格内容居中 */
+      text-align: center !important; /* 单元格内容居中 */
       vertical-align: middle;
       border: 1px solid #e0e0e0;
-      white-space: nowrap;
+      word-break: break-all; /* 解决长文本溢出问题，替换原white-space: nowrap */
       min-width: 150px;
     }
-    /* 文本列样式 */
+    /* 文本列样式（加宽以容纳长文本） */
     .table th:first-child, 
     .table td:first-child {
       min-width: 300px;
-      white-space: normal;
-      word-break: break-all;
     }
+    /* 表头样式（统一蓝色背景，覆盖原f5f5f5） */
     .table th {
-      background-color: #f5f5f5;
+      background-color: #3498db !important;
+      color: white !important;
       font-weight: 600;
     }
-    /* 关键调整：音频控件居中显示 */
+    /* 音频控件样式（确保居中且不溢出） */
     audio {
       width: 100%;
       max-width: 170px; 
       box-sizing: border-box;
-      margin: 0 auto; /* 确保音频控件在单元格内水平居中 */
-      display: block; /* 让margin: auto生效 */
+      margin: 0 auto; /* 水平居中 */
+      display: block;
     }
     video {
       max-width: 100%;
@@ -84,7 +85,7 @@
     }
     .table-responsive {
       width: 100%;
-      overflow-x: auto;
+      overflow-x: auto; /* 移动端横向滚动 */
     }
     .container-wider {
       width: 100%;
@@ -93,6 +94,7 @@
       margin-right: auto;
       margin-left: auto;
     }
+    /* 响应式容器宽度 */
     @media screen and (min-width: 1024px) {
       .container-wider {
         max-width: 1440px;
@@ -108,8 +110,9 @@
         max-width: 90%;
       }
     }
-</style>
+  </style>
 
+  <!-- 脚本引入（jQuery需先引入，确保依赖正确） -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
@@ -117,6 +120,7 @@
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
 </head>
+<!-- 修复：移除嵌套的<body>标签，页面仅保留一个<body> -->
 <body>
 
   <!-- Hero Section: Title & Authors -->
@@ -152,6 +156,7 @@
               <ul class="list-disc pl-6 mt-2">
                 <li><a href="#model-overview" class="link">System Overview</a></li>
                 <li><a href="#Paralanguage-TTS" class="link">Paralanguage TTS</a></li>
+                <li><a href="#Text-to-Timbre" class="link">Text-to-Timbre</a></li> <!-- 新增Text-to-Timbre导航 -->
               </ul>
             </div>
           </div>
@@ -177,79 +182,287 @@
     </div>
   </section>
 
-<section id="Paralanguage-TTS" class="section">
-  <div class="container-wider">
-    <div class="shadow-card">
-      <h2 class="title is-3 has-text-centered">Paralanguage TTS</h2>
-      <div class="table-responsive">
-        <table class="table" style="border: 1px solid #e0e0e0; border-bottom: none; table-layout: auto;">
-          <thead>
-            <tr>
-              <th style="vertical-align: middle; background: #3498db; color: white; width: 25%;">Text</th>
-              <th style="vertical-align: middle; background: #3498db; color: white;">Prompt</th>
-              <th style="vertical-align: middle; background: #3498db; color: white;">CosyVoice2</th>
-              <th style="vertical-align: middle; background: #3498db; color: white;">GPT-Sovits</th>
-              <th style="vertical-align: middle; background: #3498db; color: white;">ChatTTS</th>
-              <th style="vertical-align: middle; background: #3498db; color: white;">QinYu</th>
-            </tr>
-          </thead>
-          <tbody id="audioTableBody"></tbody>
-        </table>
+  <!-- 2. Paralanguage TTS -->
+  <section id="Paralanguage-TTS" class="section">
+    <div class="container-wider">
+      <div class="shadow-card">
+        <h2 class="title is-3 has-text-centered">Paralanguage TTS</h2>
+        <div class="table-responsive">
+          <table class="table" style="border: 1px solid #e0e0e0; border-bottom: none; table-layout: auto;">
+            <thead>
+              <tr>
+                <th style="vertical-align: middle; width: 25%;">Text</th>
+                <th style="vertical-align: middle;">Prompt</th>
+                <th style="vertical-align: middle;">CosyVoice2</th>
+                <th style="vertical-align: middle;">GPT-SoVITS</th>
+                <th style="vertical-align: middle;">ChatTTS</th>
+                <th style="vertical-align: middle;">QinYu</th>
+              </tr>
+            </thead>
+            <tbody id="audioTableBody"></tbody>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<script>
-// 1. 定义三个循环列表
-const tasks = ["laugh"];
-const texts = [
-  { content: "你上次说减肥，结果半夜发朋友圈“烧烤配奶茶，快乐似神仙”。哈哈哈， 这波自我攻略我服！", number: "1" },
-  { content: "你上次说减肥，结果半夜发朋友圈“烧烤配奶茶，快乐似神仙”。哈哈哈， 这波自我攻略我服！", number: "2" },
-  { content: "呵呵，聪明！不过凶手漏了个细节", number: "3" },
-  { content: "哈哈，那顿饭真是难以下咽，我到现在还记得那个味道！", number: "4" },
-  { content: "这猫上树时那表情，像极了周一上班的我，哈哈哈哈。", number: "5" },
-];
-const models = ["Prompt", "CosyVoice2", "GPT-Sovits", "ChatTTS", "QinYu"];
+  <!-- 3. Text-to-Timbre（修复：放在唯一的<body>内，确保DOM结构正确） -->
+  <section id="Text-to-Timbre" class="section">
+    <div class="container-wider">
+      <div class="shadow-card">
+        <h2 class="title is-3 has-text-centered">Text-to-Timbre</h2>
+        <div class="table-responsive">
+          <table class="table" style="border: 1px solid #e0e0e0; border-bottom: none; table-layout: auto;">
+            <thead>
+              <tr>
+                <th style="vertical-align: middle; width: 25%;">Category</th>
+                <th style="vertical-align: middle;">Text-to-Timbre Prompt</th>
+                <th style="vertical-align: middle;">Context-Aware-Instruct Prompt</th>
+                <th style="vertical-align: middle;">QinYu-Instruct</th>
+              </tr>
+            </thead>
+            <tbody id="timbreTableBody"></tbody> <!-- 表格内容容器 -->
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
 
-// 2. 获取表格tbody容器
-const tableBody = document.getElementById("audioTableBody");
+  <!-- 所有脚本放在页面底部（确保DOM加载完成后执行） -->
+  <script>
+    // 1. Paralanguage TTS 表格生成脚本
+    (function() {
+      const tasks = ["laugh"];
+      const texts = [
+        { content: "你上次说减肥，结果半夜发朋友圈“烧烤配奶茶，快乐似神仙”。<b>哈哈哈</b>， 这波自我攻略我服！", number: "1" },
+        { content: "你上次说减肥，结果半夜发朋友圈“烧烤配奶茶，快乐似神仙”。<b>哈哈哈</b>， 这波自我攻略我服！", number: "2" },
+        { content: "<b>呵呵</b>，聪明！不过凶手漏了个细节", number: "3" },
+        { content: "<b>哈哈</b>，那顿饭真是难以下咽，我到现在还记得那个味道！", number: "4" },
+        { content: "这猫上树时那表情，像极了周一上班的我，<b>哈哈哈哈</b>。", number: "5" },
+      ];
+      const models = ["Prompt", "CosyVoice2", "GPT-Sovits", "ChatTTS", "QinYu"];
 
-// 3. 生成表格内容
-tasks.forEach(task => {
-  texts.forEach((text, textIndex) => {
-    const row = document.createElement("tr");
-    const isLastRow = textIndex === texts.length - 1 && task === tasks[tasks.length - 1];
-    const borderStyle = isLastRow ? "border: 1px solid #e0e0e0; border-top: 1px solid #e0e0e0 !important; border-bottom: 1px solid #e0e0e0 !important;" : "border: 1px solid #e0e0e0;";
+      // 确保DOM加载完成后获取容器
+      const tableBody = document.getElementById("audioTableBody");
+      if (!tableBody) return; // 防止容器不存在导致报错
 
-    // 文本列
-    const textCell = document.createElement("td");
-    textCell.style = `${borderStyle} vertical-align: middle; width: 25%; word-break: break-all; white-space: normal; padding: 8px;`;
-    textCell.textContent = text.content;
-    row.appendChild(textCell);
+      tasks.forEach(task => {
+        texts.forEach((text, textIndex) => {
+          const row = document.createElement("tr");
+          const isLastRow = textIndex === texts.length - 1 && task === tasks[tasks.length - 1];
+          const borderStyle = isLastRow ? "border: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0 !important;" : "border: 1px solid #e0e0e0;";
 
-    // 音频列（保持居中样式）
-    models.forEach((model, modelIndex) => {
-      const audioCell = document.createElement("td");
-      const cellStyle = isLastRow && modelIndex === models.length - 1 
-        ? `${borderStyle} border-right: 1px solid #e0e0e0 !important; vertical-align: middle; padding: 8px;` 
-        : `${borderStyle} vertical-align: middle; padding: 8px;`;
-      audioCell.style = cellStyle;
+          // 文本列
+          const textCell = document.createElement("td");
+          textCell.style = `${borderStyle} vertical-align: middle; width: 25%; word-break: break-all; padding: 8px;`;
+          textCell.innerHTML = text.content;
+          row.appendChild(textCell);
 
-      // 音频元素保持居中
-      audioCell.innerHTML = `
-        <audio controls>
-          <source src="audios/${task}/${model}/${text.number}.wav" type="audio/wav">
-          浏览器不支持音频播放
-        </audio>
-      `;
-      row.appendChild(audioCell);
-    });
+          // 音频列
+          models.forEach((model, modelIndex) => {
+            const audioCell = document.createElement("td");
+            const cellStyle = `${borderStyle} vertical-align: middle; padding: 8px;`;
+            audioCell.style = cellStyle;
 
-    tableBody.appendChild(row);
-  });
-});
-</script>
+            audioCell.innerHTML = `
+              <audio controls>
+                <source src="audios/${task}/${model}/${text.number}.wav" type="audio/wav">
+                浏览器不支持音频播放
+             </audio>
+            `;
+            row.appendChild(audioCell);
+          });
+
+          tableBody.appendChild(row);
+        });
+      });
+    })();
+
+    // 2. Text-to-Timbre 表格生成脚本（独立作用域，避免变量冲突）
+    (function() {
+      // 完整数据（确保音频路径与实际文件一致）
+      const timbreData = [
+        {
+          category: "Child",
+          items: [
+            // {
+            //   tttPrompt: "该角色是一个幼儿男性，身份是农家小儿，性格憨厚耿直、认死理，气质质朴干净。",
+            //   caPrompt: "斩钉截铁|被质疑时的直白辩解|\"我没说谎！这就是我看到的样子！你不信就算了！\"",
+            //   audioSrc: "audios/autobook/1.wav"
+            // },
+            // {
+            //   tttPrompt: "该角色是一个幼儿女性，身份是世家千金，性格活泼机敏、爱撒娇，气质天真灵动。",
+            //   caPrompt: "撒娇|向长辈讨要东西时的快语|\"娘亲娘亲！你看那个糖人，翅膀亮晶晶的！给我买一个嘛～\"",
+            //   audioSrc: "audios/autobook/2.wav"
+            // },
+            // {
+            //   tttPrompt: "该角色是一个幼儿女性，身份是绣坊小徒，性格耐心细致、指尖灵巧，气质娴静乖巧。",
+            //   caPrompt: "思考|做手工时的轻柔自语|\"一针… 一线… 要绣得整整齐齐的，师父才会夸我。\"",
+            //   audioSrc: "audios/autobook/3.wav"
+            // },
+            {
+              tttPrompt: "该角色是一个<b>幼儿女性</b>，身份是小郡主/公主，性格骄慢却善良、爱助人，气质高贵带娇憨。",
+              caPrompt: "<b>关切|看到他人困难时的别扭关心|</b>\"哼，你怎么这么笨！这点事都做不好，我… 我帮你就是了！\"",
+              audioSrc: "audios/autobook/4.wav"
+            }
+          ]
+        },
+        {
+          category: "Youth",
+          items: [
+            // {
+            //   tttPrompt: "该角色是一个青年男性，身份是画师/书生，性格敏感细腻、爱采风，气质清雅忧郁，音色轻柔，语调舒缓",
+            //   caPrompt: "感慨|触景生情时的轻叹|\"这花开得再好，也有谢的时候… 就像人间聚散。\"",
+            //   audioSrc: "audios/autobook/26.wav"
+            // },
+            // {
+            //   tttPrompt: "该角色是一个青年男性，身份是酿酒师/工匠，性格踏实执拗、重手艺，气质质朴热忱，音色粗亮，带烟火气",
+            //   caPrompt: "思考|做手艺时的自语|\"这活儿得细着来，差一分都不行… 手艺可不能丢。\"",
+            //   audioSrc: "audios/autobook/27.wav"
+            // },
+            // {
+            //   tttPrompt: "该角色是一个青年女性，身份是宗门圣女/仙子，性格清冷高傲、不食烟火，气质高洁矜持，音色清越冰冷，语调平淡",
+            //   caPrompt: "冷漠|拒绝他人时的平淡语调|\"凡尘情爱，不过镜花水月。你我殊途，请回吧。\"",
+            //   audioSrc: "audios/autobook/31.wav"
+            // },
+            {
+              tttPrompt: "该角色是一个<b>青年女性</b>，身份是医者/药师，性格温婉善良、细腻包容，气质清雅含蓄，音色柔和温暖，语速舒缓",
+              caPrompt: "<b>关切|安抚受伤者时的轻语|</b>\"乖，吃了这糖丸就不疼了。让姐姐看看伤口，很快就好。\"",
+              audioSrc: "audios/autobook/32.wav"
+            }
+          ]
+        },
+        {
+          category: "Middle-aged",
+          items: [
+            {
+              tttPrompt: "该角色是一个<b>中年男性</b>，身份是王朝将军，性格铁血威严、霸气侧漏，气质不怒自威",
+              caPrompt: "<b>坚定|阵前发布指令时的呐喊|</b>\"三军听令！擂鼓，进军！后退者，斩！\"",
+              audioSrc: "audios/autobook/41.wav"
+            },
+            // {
+            //   tttPrompt: "该角色是一个中年男性，身份是山村猎户/农夫，性格朴实憨厚、沉默寡言，气质质朴善良",
+            //   caPrompt: "关切|拒绝陌生人时的缓慢回应|\"山里？不去不去。那林子邪乎，城里人莫要去送死。\"",
+            //   audioSrc: "audios/autobook/46.wav"
+            // },
+            // {
+            //   tttPrompt: "该角色是一个中年女性，身份是隐居高手/毒师，性格古怪孤僻、手段狠辣，气质阴郁危险",
+            //   caPrompt: "嘲讽|嘲讽对手时的冷笑|\"就这点本事也敢来？你的毒，给我家狗当洗脚水都不配！\"",
+            //   audioSrc: "audios/autobook/56.wav"
+            // },
+            // {
+            //   tttPrompt: "该角色是一个中年女性，身份是丧夫寡妇/孤母，性格忧郁坚韧、撑家计，气质悲苦却倔强",
+            //   caPrompt: "悲伤|丧亲后的泣诉|\"你个死鬼… 丢下我们娘俩… 但我会撑下去的… 一定……\"",
+            //   audioSrc: "audios/autobook/59.wav"
+            // }
+          ]
+        },
+        {
+          category: "Elderly",
+          items: [
+            {
+              tttPrompt: "该角色是一个<b>老年男性</b>，身份是退隐老帝/太上皇，性格深不可测、威势犹存，气质泰山压顶",
+              caPrompt: "<b>严厉|谈及权势时的低语|</b>\"这天下，终究还是朕的天下。有些人，手伸太长了。\"",
+              audioSrc: "audios/autobook/61.wav"
+            },
+            // {
+            //   tttPrompt: "该角色是一个老年男性，身份是家族老祖/活化石，性格慈祥护短、偶尔顽皮，气质深藏不露",
+            //   caPrompt: "宠溺|逗晚辈时的苍老声|\"小皮猴，又想掏曾祖的葫芦？来，让我看看你根基练得如何。\"",
+            //   audioSrc: "audios/autobook/62.wav"
+            // },
+            // {
+            //   tttPrompt: "该角色是一个老年女性，身份是慈祥祖母/接生婆，性格唠唠叨叨、心地善良，气质温暖和蔼",
+            //   caPrompt: "宠溺|哄孩子时的轻哼|\"哦哦哦～宝宝乖，睡觉觉～奶奶的小心肝哟…\"",
+            //   audioSrc: "audios/autobook/72.wav"
+            // },
+            // {
+            //   tttPrompt: "该角色是一个老年女性，身份是庵主/道姑，性格清心寡欲、洞察世情，气质冷静出尘",
+            //   caPrompt: "冷漠|拒绝访客时的语调|\"红尘已断，施主请回。青灯古佛，便是归宿。\"",
+            //   audioSrc: "audios/autobook/73.wav"
+            // }
+          ]
+        },
+        {
+          category: "Non-human",
+          items: [
+            {
+              tttPrompt: "该角色是一个<b>非人类树精（中年男性）</b>，身份是古木灵/山林守护者，性格沉稳寡言、爱自然，气质古老带绿意",
+              caPrompt: "<b>感慨|抚花叶时的叹息|</b>\"又一个百年过去了… 当年种我的人，如今轮回成了谁呢？\"",
+              audioSrc: "audios/autobook/82.wav"
+            },
+            // {
+            //   tttPrompt: "该角色是一个非人类猫妖（青年女性），身份是宠妖/捣蛋精，性格慵懒狡黠、好奇心重，气质妩媚灵活",
+            //   caPrompt: "撒娇|索要食物时的鼻音|\"嗯～今天太阳真好呀… 小鱼干呢？没有就不干活哦。\"",
+            //   audioSrc: "audios/autobook/87.wav"
+            // },
+            // {
+            //   tttPrompt: "该角色是一个非人类机器人（中性），身份是星际AI副官，性格冷静高效、绝对忠诚，气质可靠",
+            //   caPrompt: "平静|报告情况时的电子音|\"航线清晰，无异常波动。舰体完整性 100%。愿为您服务。\"",
+            //   audioSrc: "audios/autobook/93.wav"
+            // },
+            // {
+            //   tttPrompt: "该角色是一个非人类混沌灵火（无性别），身份是先天灵物/破坏者，性格顽皮毁灭、不可测，气质危险灼热",
+            //   caPrompt: "兴奋|跳跃时的童声|\"嘻嘻～烧起来啦！好看！真好玩！再来多一点！\"",
+            //   audioSrc: "audios/autobook/97.wav"
+            // }
+          ]
+        }
+      ];
+
+      // 确保DOM加载完成后执行（关键：避免容器未加载就执行脚本）
+      document.addEventListener('DOMContentLoaded', function() {
+        const tableBody = document.getElementById("timbreTableBody");
+        if (!tableBody) {
+          console.error("Text-to-Timbre表格容器未找到！请检查ID是否为timbreTableBody");
+          return;
+        }
+
+        // 遍历数据生成表格
+        timbreData.forEach(categoryData => {
+          const { category, items } = categoryData;
+          items.forEach((item, itemIndex) => {
+            const row = document.createElement("tr");
+            const isLastItem = itemIndex === items.length - 1;
+            const baseStyle = "border: 1px solid #e0e0e0; padding: 8px; vertical-align: middle; word-break: break-all;";
+
+            // 分类列（仅第一条数据显示，占4行）
+            if (itemIndex === 0) {
+              const categoryCell = document.createElement("td");
+              categoryCell.style = `${baseStyle} border-right: 1px solid #e0e0e0;`;
+              categoryCell.rowSpan = items.length; // 合并4行
+              categoryCell.textContent = category;
+              row.appendChild(categoryCell);
+            }
+
+            // TTT Prompt列
+            const tttCell = document.createElement("td");
+            tttCell.style = baseStyle;
+            tttCell.innerHTML = item.tttPrompt;
+            row.appendChild(tttCell);
+
+            // CA-Instruct-TTS Prompt列
+            const caCell = document.createElement("td");
+            caCell.style = baseStyle;
+            caCell.innerHTML = item.caPrompt;
+            row.appendChild(caCell);
+
+            // 音频列（最后一行补充底部边框）
+            const audioCell = document.createElement("td");
+            audioCell.style = isLastItem ? `${baseStyle} border-bottom: 1px solid #e0e0e0 !important;` : baseStyle;
+            audioCell.innerHTML = `
+              <audio controls>
+                <source src="${item.audioSrc}" type="audio/wav">
+                您的浏览器不支持音频播放
+             </audio>
+            `;
+            row.appendChild(audioCell);
+
+            tableBody.appendChild(row);
+          });
+        });
+      });
+    })();
+  </script>
 
   <!-- BibTeX Citation -->
   <section class="section" id="BibTeX">
