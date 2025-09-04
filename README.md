@@ -1,4 +1,10 @@
-# 👉🏻 QinYu 👈🏻  
+<p align="center">
+    <img src="static\images\logo.png" width="150"/>
+<p>
+
+<p align="center">
+  
+# 👉🏻 QinYu: A Family of High-Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism, and Emotional Control 👈🏻  
 [Demos](http://tme-lyra-lab.github.io/)  
 
 
@@ -61,9 +67,11 @@ Specialized for podcast scenarios, delivering natural conversational flow with c
 - **Scalability**: Built on a million-hour-scale base model, with future "ALL-in-One" architecture planning to integrate controllable paralinguistic tagging, adjustable colloquialism strength, and novel voice generation.  
 
 
-### BibTeX  
+### BibTeX
+```bibtex
 @article{qinyu-2025,  
   title={QinYu: A Family of High-Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism, and Emotional Control},  
   author={QinYu Team, TME Lyra Lab},  
   year={2025}  
 }
+```
