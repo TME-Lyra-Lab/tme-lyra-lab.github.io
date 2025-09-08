@@ -2,10 +2,9 @@
     <img src="static\images\logo.png" width="150"/>
 <p>
 
-<p align="center">
   
-# 👉🏻 QinYu: A Family of High-Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism, and Emotional Control 👈🏻  
-[Demos](http://tme-lyra-lab.github.io/)  
+# 👉🏻 QinYu: A Family of High-Fidelity Zero-Shot TTS with High Naturalness, Spontaneous Colloquialism, and Emotional Control 👈🏻 
+<a href="http://tme-lyra-lab.github.io/" ><img src="https://img.shields.io/badge/Demo-Try%20Now-blue" alt="Demo"></a> | <a href="README_zh.md"><img src="https://img.shields.io/badge/语言-简体中文-green" alt="简体中文"></a>
 
 
 ## Highlight🔥  
