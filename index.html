@@ -167,8 +167,8 @@
                 <li><a href="#Instructed Voice Generation" class="link">Instructed Voice Generation</a></li>
                 <li><a href="#Text-to-Timbre" class="link">Text-to-Timbre</a></li>
                 <li><a href="#Audiobook Generation" class="link">Audiobook Generation</a></li>
-                <li><a href="#Podcast Generation" class="link">Podcast Generation</a></li> 
                 <li><a href="#Auto-Oral" class="link">Zero-Shot Auto-Oral Voice Generation</a></li> 
+                <li><a href="#Podcast Generation" class="link">Podcast Generation</a></li> 
               </ul>
             </div>
           </div>
@@ -715,7 +715,57 @@
       });
     })();
 
-(function() {
+
+
+  (function() {
+    const task = "Auto-Oral"; // 只有一个任务，使用单个变量
+    const models = ["Prompt", "F5-TTS", "CosyVoice2", "QinYuCast"];
+    const texts = [
+      { content: "等等。大额存单的什么？听着好专业的样子。", number: "1" },
+      { content: "这个案例，太典型了。P to P本质是个人借贷平台，早已因为高违约率被市场淘汰。", number: "2" },
+      { content: "很多人急用钱时才发现要交高额罚金，最后，永远保留应急资金，建议至少存六个月生活费在活期账户。", number: "3" },
+      { content: "说到这个，我深有体会，去年家里突然需要钱，被迫卖掉还没回本的基金，白白损失了手续费。", number: "4" },
+    ];
+
+    // 确保DOM加载完成后执行
+    document.addEventListener('DOMContentLoaded', function() {
+      const tableBody = document.getElementById("autooralTableBody");
+      if (!tableBody) return;
+
+      // 为每个文本创建一行
+      texts.forEach((text, index) => {
+        const row = document.createElement("tr");
+        // 判断是否为最后一行
+        const isLastRow = index === texts.length - 1;
+        const borderStyle = isLastRow ? "border: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0 !important;" : "border: 1px solid #e0e0e0;";
+
+        // 创建文本单元格（第一列）
+        const textCell = document.createElement("td");
+        textCell.style = `${borderStyle} vertical-align: middle; padding: 8px;`;
+        textCell.textContent = text.content;
+        row.appendChild(textCell);
+
+        // 为每个模型创建音频单元格
+        models.forEach(model => {
+          const audioCell = document.createElement("td");
+          audioCell.style = `${borderStyle} vertical-align: middle; padding: 8px; text-align: center;`;
+
+          audioCell.innerHTML = `
+            <audio controls style="width: 100%; max-width: 200px;">
+              <source src="audios/${task}/${model}/${text.number}.wav" type="audio/wav">
+              浏览器不支持音频播放
+            </audio>
+          `;
+          row.appendChild(audioCell);
+        });
+
+        tableBody.appendChild(row);
+      });
+    });
+  })();
+
+
+  (function() {
     const tasks = ["QinYuCast"];
     const indexs = ["1", "2"]; // 使用索引数组替代文本数组
     const models = ["Prompt1", "Prompt2", "MOSS-TTSD", "Doubao", "VibeVoiceLarge", "QinYuCast"];
@@ -820,52 +870,8 @@
     });
   })();
 
-  (function() {
-    const task = "Auto-Oral"; // 只有一个任务，使用单个变量
-    const models = ["Prompt", "F5-TTS", "CosyVoice2", "QinYuCast"];
-    const texts = [
-      { content: "等等。大额存单的什么？听着好专业的样子。", number: "1" },
-      { content: "这个案例，太典型了。P to P本质是个人借贷平台，早已因为高违约率被市场淘汰。", number: "2" },
-      { content: "很多人急用钱时才发现要交高额罚金，最后，永远保留应急资金，建议至少存六个月生活费在活期账户。", number: "3" },
-      { content: "说到这个，我深有体会，去年家里突然需要钱，被迫卖掉还没回本的基金，白白损失了手续费。", number: "4" },
-    ];
 
-    // 确保DOM加载完成后执行
-    document.addEventListener('DOMContentLoaded', function() {
-      const tableBody = document.getElementById("autooralTableBody");
-      if (!tableBody) return;
-
-      // 为每个文本创建一行
-      texts.forEach((text, index) => {
-        const row = document.createElement("tr");
-        // 判断是否为最后一行
-        const isLastRow = index === texts.length - 1;
-        const borderStyle = isLastRow ? "border: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0 !important;" : "border: 1px solid #e0e0e0;";
-
-        // 创建文本单元格（第一列）
-        const textCell = document.createElement("td");
-        textCell.style = `${borderStyle} vertical-align: middle; padding: 8px;`;
-        textCell.textContent = text.content;
-        row.appendChild(textCell);
-
-        // 为每个模型创建音频单元格
-        models.forEach(model => {
-          const audioCell = document.createElement("td");
-          audioCell.style = `${borderStyle} vertical-align: middle; padding: 8px; text-align: center;`;
-
-          audioCell.innerHTML = `
-            <audio controls style="width: 100%; max-width: 200px;">
-              <source src="audios/${task}/${model}/${text.number}.wav" type="audio/wav">
-              浏览器不支持音频播放
-            </audio>
-          `;
-          row.appendChild(audioCell);
-        });
-
-        tableBody.appendChild(row);
-      });
-    });
-  })();
+    
   </script>
 
 
@@ -900,3 +906,4 @@
 
 </body>
 </html>
+
