@@ -162,7 +162,7 @@
                 <li><a href="#Text-to-Timbre" class="link">Text-to-Timbre</a></li>
                 <li><a href="#Audiobook Generation" class="link">Audiobook Generation</a></li>
                 <li><a href="#Podcast Generation" class="link">Podcast Generation</a></li> 
-                <!-- <li><a href="#Auto-Oral" class="link">Auto-Oral Voice Generation</a></li>  -->
+                <li><a href="#Auto-Oral" class="link">Zero-Shot Auto-Oral Voice Generation</a></li> 
               </ul>
             </div>
           </div>
@@ -279,19 +279,19 @@
   </div>
 </section>
 
-<!-- <section id="Auto-Oral" class="section">
+<section id="Auto-Oral" class="section">
   <div class="container-wider">
     <div class="shadow-card">
-      <h2 class="title is-3 has-text-centered">Auto-Oral Voice Generation</h2>
+      <h2 class="title is-3 has-text-centered">Zero-Shot Auto-Oral Voice Generation</h2>
       <div class="table-responsive">
         <table class="table" style="border: 1px solid #e0e0e0; border-bottom: none; table-layout: fixed; width: 100%;">
           <thead>
             <tr>
-              <th style="vertical-align: middle; width: 25%;">Prompt 1</th>
-              <th style="vertical-align: middle; width: 25%;">Prompt 1</th>
-              <th style="vertical-align: middle; width: 25%;">Prompt 2</th>
-              <th style="vertical-align: middle; width: 25%;">CosyVoice2</th>
-              <th style="vertical-align: middle; width: 25%;">QinYu-Cast</th>
+              <th style="vertical-align: middle; width: 52%;">Text</th>
+              <th style="vertical-align: middle; width: 12.5%;">Prompt</th>
+              <th style="vertical-align: middle; width: 12.5%;">F5-TTS</th>
+              <th style="vertical-align: middle; width: 12.5%;">CosyVoice2</th>
+              <th style="vertical-align: middle; width: 12.5%;">QinYu-Cast</th>
             </tr>
           </thead>
           <tbody id="autooralTableBody"></tbody>
@@ -299,7 +299,7 @@
       </div>
     </div>
   </div>
-</section> -->
+</section>
 
   <script>
     (function() {
@@ -814,61 +814,52 @@
     });
   })();
 
+  (function() {
+    const task = "Auto-Oral"; // 只有一个任务，使用单个变量
+    const models = ["Prompt", "F5-TTS", "CosyVoice2", "QinYuCast"];
+    const texts = [
+      { content: "等等。大额存单的什么？听着好专业的样子。", number: "1" },
+      { content: "这个案例，太典型了。P to P本质是个人借贷平台，早已因为高违约率被市场淘汰。", number: "2" },
+      { content: "很多人急用钱时才发现要交高额罚金，最后，永远保留应急资金，建议至少存六个月生活费在活期账户。", number: "3" },
+      { content: "说到这个，我深有体会，去年家里突然需要钱，被迫卖掉还没回本的基金，白白损失了手续费。", number: "4" },
+    ];
 
-  // (function() {
-  //   const tasks = ["Auto-Oral"];
-  //   const indexs = ["1", "2"]; // 使用索引数组替代文本数组
-  //   const models = ["Prompt1", "Prompt2", "CosyVoice2", "QinYuCast"];
+    // 确保DOM加载完成后执行
+    document.addEventListener('DOMContentLoaded', function() {
+      const tableBody = document.getElementById("autooralTableBody");
+      if (!tableBody) return;
 
-  //   // 确保DOM加载完成后执行
-  //   document.addEventListener('DOMContentLoaded', function() {
-  //     const tableBody = document.getElementById("autooralTableBody");
-  //     if (!tableBody) return;
+      // 为每个文本创建一行
+      texts.forEach((text, index) => {
+        const row = document.createElement("tr");
+        // 判断是否为最后一行
+        const isLastRow = index === texts.length - 1;
+        const borderStyle = isLastRow ? "border: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0 !important;" : "border: 1px solid #e0e0e0;";
 
-  //     tasks.forEach(task => {
-  //       // 创建两行表格
-  //       indexs.forEach((index, indexNum) => {
-  //         const row = document.createElement("tr");
-  //         const isLastRow = indexNum === indexs.length - 1 && task === tasks[tasks.length - 1];
-  //         const borderStyle = isLastRow ? "border: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0 !important;" : "border: 1px solid #e0e0e0;";
+        // 创建文本单元格（第一列）
+        const textCell = document.createElement("td");
+        textCell.style = `${borderStyle} vertical-align: middle; padding: 8px;`;
+        textCell.textContent = text.content;
+        row.appendChild(textCell);
 
-  //         models.forEach(model => {
-  //             const audioCell = document.createElement("td");
-  //             const cellStyle = `${borderStyle} vertical-align: middle; padding: 8px;`;
-  //             audioCell.style = cellStyle;
+        // 为每个模型创建音频单元格
+        models.forEach(model => {
+          const audioCell = document.createElement("td");
+          audioCell.style = `${borderStyle} vertical-align: middle; padding: 8px; text-align: center;`;
 
-  //             audioCell.innerHTML = `
-  //               <audio controls>
-  //                 <source src="audios/${task}/${model}/${index}.wav" type="audio/wav">
-  //                 浏览器不支持音频播放
-  //               </audio>
-  //             `;
-  //             row.appendChild(audioCell);
-            
-  //         });
+          audioCell.innerHTML = `
+            <audio controls style="width: 100%; max-width: 200px;">
+              <source src="audios/${task}/${model}/${text.number}.wav" type="audio/wav">
+              浏览器不支持音频播放
+            </audio>
+          `;
+          row.appendChild(audioCell);
+        });
 
-  //         tableBody.appendChild(row);
-  //       });
-  //     });
-  //           // 在表格下方添加文本（关键新增部分）
-  //     // 获取表格的父容器
-  //     const tableContainer = tableBody.closest('.table-responsive');
-  //     if (tableContainer) {
-  //       // 创建文本容器
-  //       const textContainer = document.createElement('div');
-  //       textContainer.className = 'mt-4 has-text-justified'; // 添加间距和文本对齐样式
-  //       textContainer.style.padding = '0 1rem'; // 与表格保持一致的内边距
-        
-  //       // 文本内容（可根据需要修改）
-  //       textContainer.innerHTML = `
-  //         <p><b>[S1]</b>哈喽朋友们，今天咱们聊个扎心的话题啊，你打开手机银行突然发现工作这些年居然攒下了二十万存款。<b>[S1]</b>这钱该怎么处理呢？放余额宝怕贬值买股票又怕被割韭菜，是不是特别纠结？<b>[S2]</b>没错，这种焦虑太真实了。一线城市打工人存下二十万不容易。<b>[S2]</b>但数据显示，如果只做银行定期，年化收益可能只有百分之二到三，根本跑不赢通胀，相当于钱在悄悄缩水。<b>[S1]</b>天哪，辛苦攒钱居然越放越少，那该怎么办呢？总不能天天盯着股市心惊胆战吧。<b>[S2]</b>其实有更聪明的选择，比如国债年化百分之三左右，还有大额存单，特别是城商行发行的利率可能高达百分之四点八。<b>[S2]</b>货币基金像余额宝也有百分之三收益，这些都是相对稳妥的选项。<b>[S1]</b>等等。大额存单的什么？听着好专业的样子。<b>[S2]</b>简单说，就是银行专门为存款大户设计的产品，起存金额二十万，利率比普通定期高不少。<b>[S2]</b>不过要提醒大家城商行指的是城市商业银行，虽然利率诱人但最好确认是否有存款保险保障。<b>[S1]</b>明白了，那要是想追求更高收益呢，总不能把所有鸡蛋放一个篮子里吧。<b>[S2]</b>这就说到关键了，建议采用五三二分配法，百分之五十放低风险产品，比如国债存单，百分之三十配置中风险产品比如指数基金定投。剩下百分之二十可以尝试股票这类高风险投资基金。<b>[S1]</b>定投我听说过，但具体怎么操作呢？<b>[S2]</b>定投就是定期定额投资，比如每月固定日期，投入固定金额买基金，这样能摊平成本，特别适合长期投资。<b>[S2]</b>指数基金跟踪大盘走势、管理费低，历史数据显示长期年化收益在百分之八到十五之间。<b>[S1]</b>哇，这个策略听起来很稳啊，不过为什么很多人还是亏钱呢？我朋友圈里经常看到有人晒亏损截图。<b>[S2]</b>这里就涉及投资心理了很多人犯的第一个错误是害怕错过行情，看到别人赚钱就盲目跟风。第二个是损失厌恶账户，稍微浮亏就恐慌，抛售，结果错过反弹。<b>[S1]</b>对对对，我有个同事就这样，去年听说白酒基金火跟风买入，跌了百分之十就割肉结果现在涨回来了又后悔。<b>[S2]</b>这就是典型的从众心理作祟。投资决策应该基于自身风险承受能力而不是别人买什么。建议设定明确目标，比如年化收益百分之六到八，同时设置止损减，最重要的是减少看账户频率，避免情绪化操作。<b>[S1]</b>说到踩坑，我表姐前几年投过P2P说是年化百分之十二，结果平台跑路，二十万，血本无归，现在想起来还心疼。<b>[S2]</b>这个案例，太典型了。P to p本质是个人借贷平台，早已因为高违约率被市场淘汰。<b>[S2]</b>但类似的陷阱依然存在，记住，收益率超过百分之八就要警惕，超过百分之十，大概率有问题。<b>[S1]</b>那怎么识别这些陷阱呢？<b>[S2]</b>首先，认准持牌机构、银行、公募基金这些有监管的。其次，务必仔细阅读合同，特别是赎回条款和手续费。<b>[S2]</b>很多人急用钱时才发现要交高额罚金，最后，永远保留应急资金，建议至少存六个月生活费在活期账户。<b>[S1]</b>说到这个，我深有体会，去年家里突然需要钱，被迫卖掉还没回本的基金，白白损失了手续费。<b>[S2]</b>这正是流动性管理的重要性。朋友们，记住三个原则，稳健优先，心理建设，案例警示，低风险工具要占主导，同时要克服贪婪和从众心理，多学习理财知识。<b>[S1]</b>虽然今天聊了很多投资方法，但最触动我的是那句保本才是第一原则，毕竟咱们打工攒的每一分钱都不容易。<b>[S2]</b>没错，理财不是赌博，而是长期规划。未来或许会有AI理财顾问这些新工具，但现阶段守住本金，控制风险，保持理性，才是未来普通打工人的致富密码。<b>[S1]</b>说的太好了朋友们，记住今天聊的五三二分配法，远离高息诱惑，做个聪明的投资者。好了，今天的分享就到这里，我们下期再见。</p>
-  //       `;
-        
-  //       // 将文本容器插入到表格容器的后面
-  //       tableContainer.parentNode.insertBefore(textContainer, tableContainer.nextSibling);
-  //     }
-  //   });
-  // })();
+        tableBody.appendChild(row);
+      });
+    });
+  })();
   </script>
 
 
