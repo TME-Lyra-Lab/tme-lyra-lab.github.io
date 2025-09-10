@@ -12,7 +12,7 @@
   <title>QinYu-AutoBook: End-to-End Audiobook Narration</title>
   <style>
     html { scroll-behavior: smooth; }
-    body { font-family: 'Roboto', Arial, sans-serif; font-size: 0.9rem; }
+    body { font-family: 'Roboto', Arial, sans-serif; font-size: 1.0rem; font-weight: 400; }
     header h1 { font-weight: 700; }
     .doc-links a { margin: 0 6px; font-size: 0.95rem; }
     .page-wrap { max-width: 1360px; margin-top: 2.5rem; margin-bottom: 2.5rem; padding-left: 0; padding-right: 0; }
@@ -43,10 +43,7 @@
           <h2 class="page-title">QinYu-AutoBook: End-to-End Audiobook Narration with Text-to-Timbre and Context-Aware Instruct Text to Speech</h2>
           <div class="doc-links mt-2">
             [<a href="https://arxiv.org/abs/2412.10117" target="_blank">Paper</a>]
-            [<a href="#" target="_blank">Code</a>]
-            [<a href="#" target="_blank">Studio</a>]
-            [<a href="#" target="_blank">HuggingFace</a>]
-            [<a href="#" target="_blank">ModelScope</a>]
+            [<a href="https://github.com/TME-Lyra-Lab/tme-lyra-lab.github.io" target="_blank">Code</a>]
           </div>
           <p class="fst-italic mb-0">
             <br>
@@ -56,21 +53,30 @@
           <p><b>TME-Lyra-Lab@Tencent</b></p>
         </div>
         <p><b>Abstract:</b>
-          The production of traditional multi-participant audiobooks is costly and heavily relies on manual effort. Despite progress in neural TTS, generating specific character voices from abstract textual descriptions and ensuring prosody consistency with the narrative context in zero-shot scenarios remain challenging. This paper proposes AutoBook, an end-to-end system for automated audiobook synthesis. It consists of two core stages: (1) A Text-to-Timbre (TTT) model based on a Conditional Flow Matching framework with a Diffusion Transformer (DiT) backbone, which converts structured text descriptions (e.g., "a young male sword cultivator") into target speaker embeddings. The model is conditioned on text embeddings from Qwen3-0.6B, explicit gender labels, and temporal information injected via FiLM. (2) A Context-Aware InstructTTS (CA-InstructTTS) model, built upon the CosyVoice architecture, which incorporates context-aware instruction learning. A large language model (DeepSeek) parses emotions and scenarios (e.g., "excited|first contact with something novel") from the narrative context. These instructions, combined with the generated speaker embedding from TTT, drive the TTS to synthesize expressive speech. Trained on a large-scale audiobook dataset (4000+ hours), we open-source the BookVoice-50h dataset, containing 50k 
-			<text description, speaker embedding> pairs. Subjective and objective evaluations show that our TTT model outperforms cluster-based retrieval and conditional GAN baselines in Semantic Matching Score (SMS). The complete AutoBook system synthesizes audiobook audio with high naturalness and contextual appropriateness, offering a practical solution for industrial-scale automated production of high-quality multi-participant audiobooks
+          Current production methods for multi-participant audiobooks primarily include fully manual production and semi-AI-assisted production. The semi-AI approach generally involves NLP-based script analysis, voice timbre matching, and multi-emotion speech synthesis. However, the voice matching process still requires manual selection of suitable timbres for each character, and speech synthesis necessitates manual adjustment of dialogue emotions to ensure contextual coherence—resulting in high overall production costs. To address these challenges, we propose QinYu-AutoBook, an end-to-end automated system for multi-participant audiobook production. The system comprises two main components: a <b>Text-to-Timbre (TTT)</b> model and a <b>Context-Aware Instruct-TTS (CA-Instruct-TTS)</b> model. The TTT model analyzes character personalities in multi-participant audiobooks and generates timbre embeddings that match each character's gender, age, and personality traits. The CA-Instruct-TTS model synthesizes expressive speech by analyzing contextual dialogue and incorporating fine-grained emotional instructions. Subjective and objective evaluations demonstrate that the TTT module effectively generates appropriate target timbres for each character, while the TTS module automatically produces highly natural and contextually consistent audiobook audio. This work presents a practical solution for automated multi-participant audiobook generation.
+        </p>
         <p style="text-align: center;">
           <img src="static/images/model.png" style="max-width:100%; height:auto;" alt="model diagram">
         </p>
 
+        <div style="margin-top: 2rem;">
+          <p style="margin-bottom: 1rem;"><b>Main contributions:</b></p>
+          <ol style="line-height: 1.8; margin-bottom: 1.5rem;">
+            <li style="margin-bottom: 1rem;">We open-source BookVoice-50h, containing 50 hours of audiobook speech with both timbre descriptions and emotion-scene instructions, providing a valuable resource for text-to-timbre and expressive TTS research.</li>
+            <li style="margin-bottom: 1rem;">We propose a conditional flow matching-based Text-to-Timbre (TTT) model that generates accurate speaker embeddings from natural language descriptions, incorporating multi-scale text conditioning and explicit gender control for fine-grained timbre generation.</li>
+            <li style="margin-bottom: 1rem;">We develop a Context-Aware Instruct-TTS (CA-Instruct-TTS) system that leverages LLM-derived emotion-scene instructions from narrative context to synthesize expressive speech, effectively mitigating contextual fragmentation.</li>
+            <li style="margin-bottom: 1rem;">These components are integrated into an end-to-end pipeline that generates high-quality multi-participant audiobooks directly from text, demonstrating strong potential for industrial-scale applications.</li>
+          </ol>
+        </div>
 
-                              <p class="mt-4">
-                        <b>Contents</b>
-                        <ul>
-                          <li><a href="#Text-to-Timbre">Text-to-Timbre</a></li>
-                          <li><a href="#Context-Aware-InstructTTS">Context-Aware InstructTTS</a></li>
-                          <li><a href="#Chapter-Demo">Chapter Demo</a></li>
-                        </ul>
-                      </p>
+        <p class="mt-4">
+          <b>Contents</b>
+          <ul>
+            <li><a href="#Text-to-Timbre">Text-to-Timbre</a></li>
+            <li><a href="#Context-Aware-InstructTTS">Context-Aware InstructTTS</a></li>
+            <li><a href="#Chapter-Demo">Chapter Demo</a></li>
+          </ul>
+        </p>
       </div>
 
       <div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded section-card">
@@ -93,14 +99,14 @@
                 <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/1.wav"/></audio></td>
               </tr>
               <tr>
+                <td style="vertical-align: middle;text-align:center;">该角色是一个幼儿男性，身份是小少爷/稚子，性格骄纵却单纯、怕黑黏人，气质金贵带稚气，音色软糯，爱撒娇。</td>
+                <td style="vertical-align: middle;text-align:center;">撒娇|向长辈求关注时的软糯请求|"爹爹～我怕黑，你能不能陪我睡呀？就一晚好不好嘛～"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/3.wav"/></audio></td>
+              </tr>
+              <tr>
                 <td style="vertical-align: middle;text-align:center;">该角色是一个幼儿女性，身份是世家千金，性格活泼机敏、爱撒娇，气质天真灵动。</td>
                 <td style="vertical-align: middle;text-align:center;">撒娇|向长辈讨要东西时的快语|"娘亲娘亲！你看那个糖人，翅膀亮晶晶的！给我买一个嘛～"</td>
                 <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/2.wav"/></audio></td>
-              </tr>
-              <tr>
-                <td style="vertical-align: middle;text-align:center;">该角色是一个幼儿女性，身份是绣坊小徒，性格耐心细致、指尖灵巧，气质娴静乖巧。</td>
-                <td style="vertical-align: middle;text-align:center;">思考|做手工时的轻柔自语|"一针… 一线… 要绣得整整齐齐的，师父才会夸我。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audios/3.wav"/></audio></td>
               </tr>
               <tr>
                 <td style="vertical-align: middle;text-align:center;">该角色是一个幼儿女性，身份是小郡主/公主，性格骄慢却善良、爱助人，气质高贵带娇憨。</td>
@@ -209,14 +215,55 @@
             </thead>
             <tbody>
               <tr>
-                <td style="vertical-align: middle;text-align:center;">Speaker A</td>
-                <td style="vertical-align: middle;text-align:center;">—</td>
-                <td style="vertical-align: middle;text-align:center;">—</td>
+                <td style="vertical-align: middle;text-align:center;" rowspan="4">Speaker 1</td>
+                <td style="vertical-align: middle;text-align:center;">愤怒、质问|怀疑伴侣不忠时的尖锐质问|"你心里难不成还有人？或者，你看上了今日的魏无勋？"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker1/1.wav"/></audio></td>
               </tr>
               <tr>
-                <td style="vertical-align: middle;text-align:center;">Speaker B</td>
-                <td style="vertical-align: middle;text-align:center;">—</td>
-                <td style="vertical-align: middle;text-align:center;">—</td>
+                <td style="vertical-align: middle;text-align:center;">无奈|评价家人缺点时的语气|"你姐不都这副德性吗，从小到大都这样。亲戚们都不喜欢她。"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker1/2.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;">遗憾惋惜|对晚辈婚姻选择的叹息|"我看顾雨泽啊，这辈子是不打算结婚了，给他介绍了好几个相亲对象，没一个看上的。"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker1/3.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;">懊恼、关切担心|为自己冲动行为后悔时的自责与担忧|"我刚刚当着他们，也就是乱说的，我只是气不过，想要替你出头。你怎么也跟着我乱来？"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker1/4.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;" rowspan="4">Speaker 2</td>
+                <td style="vertical-align: middle;text-align:center;">愤怒、质问|怀疑伴侣不忠时的尖锐质问|"你心里难不成还有人？或者，你看上了今日的魏无勋？"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker2/1.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;">悲伤、咆哮|失去至亲时的崩溃哭喊|"小姐，你要是走了，我怎么办？我怎么办呢？"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker2/2.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;">悲伤、哀求|面对逝者时的绝望乞求|"寻儿，睁开眼看看我。"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker2/3.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;">懊恼、关切担心|为自己冲动行为后悔时的自责与担忧|"我刚刚当着他们，也就是乱说的，我只是气不过，想要替你出头。你怎么也跟着我乱来？"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker2/4.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;" rowspan="4">Speaker 3</td>
+                <td style="vertical-align: middle;text-align:center;">愤怒、质问|怀疑伴侣不忠时的尖锐质问|"你心里难不成还有人？或者，你看上了今日的魏无勋？"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker3/1.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;">无奈|评价家人缺点时的语气|"你姐不都这副德性吗，从小到大都这样。亲戚们都不喜欢她。"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker3/2.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;">赞叹|对孩童可爱模样表达喜爱时的赞叹|"你这闺女也太可爱了吧！"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker3/3.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;">懊恼、感慨|反思过往错误时的沉重|"其实一直以来，我都很后悔，当初选择跟她结了婚。既对不起你，也伤害了她。"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker3/4.wav"/></audio></td>
               </tr>
             </tbody>
           </table>
@@ -229,18 +276,41 @@
           <table class="table table-hover pt-2">
             <thead>
               <tr>
+                <th style="vertical-align: middle;text-align: center">Demo</th>
                 <th style="vertical-align: middle;text-align: center">Text</th>
                 <th style="vertical-align: middle;text-align: center">Generated</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td style="vertical-align: middle;text-align:center;">—</td>
-                <td style="vertical-align: middle;text-align:center;">—</td>
+                <td style="vertical-align: middle;text-align:center; white-space: nowrap;">Demo 1</td>
+                <td style="vertical-align: middle;text-align:left; padding: 15px;">
+                  就在李七夜陷入思考时，刚刚进入的群友已经忍不住发话了。<br><br>
+                  聊天群界面：<br>
+                  【叶大仙】这是哪？我的外挂！？<br>
+                  【叶大仙】钢铁侠！女帝！！哈哈哈哈哈哈！！我的外挂终于到了！<br>
+                  【钢铁侠】什么东西？哪里来的投影技术？你怎么认识我？<br>
+                  【独孤求败】这是哪！？你们都是什么人？<br>
+                  【波雅汉库克】：无礼之徒！究竟是谁的恶魔果实能力！居然敢对妾身出手！？<br><br>
+                  看着众人的发言，眼珠子转了转开始思考起来。
+                </td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="long-chapter/qinyu-instruct/1.wav"/></audio></td>
               </tr>
               <tr>
-                <td style="vertical-align: middle;text-align:center;">—</td>
-                <td style="vertical-align: middle;text-align:center;">—</td>
+                <td style="vertical-align: middle;text-align:center; white-space: nowrap;">Demo 2</td>
+                <td style="vertical-align: middle;text-align:left; padding: 15px;">
+                  方源循声望去，发现是中央的那桌，六个猎户围着桌子，已经喝得酒气熏天，气氛热烈如火，各个脸红脖子粗。<br><br>
+                  【角色1】"张老弟，来，再喝一杯！"<br>
+                  【角色2】"峰大哥，兄弟们佩服你的本事，一个人就搞定一头黑皮野猪，真是好汉！这杯酒你必须得喝，不喝就是不给兄弟们面子。"<br>
+                  【角色3】"谢兄弟们抬爱，但我实在喝不下了。"<br>
+                  【角色1】"峰大哥喝不下，是嫌弃这酒不好吗？小二，你过来，给爷几个上好酒！"<br><br>
+                  声音越来越大，很显然几个猎户都喝多了。<br><br>
+                  跑堂的小二连忙走过去：<br>
+                  【角色4】"几位大哥，好酒是有，但是可有些贵呢。"<br>
+                  【角色1】"怎么，怕爷几个不给钱怎么的？！"<br><br>
+                  猎户们听了这话，好几个都站起来，瞪向店小二。
+                </td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="long-chapter/qinyu-instruct/2.wav"/></audio></td>
               </tr>
             </tbody>
           </table>
