@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="AutoBook: End-to-End Audiobook Narration with Text-to-Timbre and Context-Aware InstructTTS">
+  <meta name="description" content="Deep Dubbing: End-to-End Auto-Audiobook System with Text-to-Timbre and Context-Aware Instruct-TTS">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
   <link href="bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="custom.css">
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <title>QinYu-AutoBook: End-to-End Audiobook Narration</title>
+  <title>Deep Dubbing: End-to-End Auto-Audiobook System with Text-to-Timbre and Context-Aware Instruct-TTS</title>
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Roboto', Arial, sans-serif; font-size: 1.0rem; font-weight: 400; }
@@ -40,10 +40,10 @@
 
       <div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded section-card">
         <div class="text-center">
-          <h2 class="page-title">DeepDubbing: End-to-End Auto-Audiobook System with Text-to-Timbre and Context-Aware Instruct-TTS</h2>
+          <h2 class="page-title">Deep Dubbing: End-to-End Auto-Audiobook System with Text-to-Timbre and Context-Aware Instruct-TTS</h2>
           <div class="doc-links mt-2">
-            [<a href="https://arxiv.org/abs/2412.10117" target="_blank">Paper</a>]
-            [<a href="https://github.com/TME-Lyra-Lab/tme-lyra-lab.github.io" target="_blank">Code</a>]
+            [<a href="https://arxiv.org/abs/2509.15845" target="_blank">Paper</a>]
+            [<a href="https://github.com/TME-Lyra-Lab/DeepDubbing" target="_blank">Code</a>]
           </div>
           <p class="fst-italic mb-0">
             <br>
@@ -209,6 +209,7 @@
             <thead>
               <tr>
                 <th style="vertical-align: middle;text-align: center">Speaker</th>
+                <th style="vertical-align: middle;text-align: center">Prompt Speech</th>
                 <th style="vertical-align: middle;text-align: center">Emotional Scene Prompt</th>
                 <th style="vertical-align: middle;text-align: center">Generated</th>
               </tr>
@@ -216,6 +217,11 @@
             <tbody>
               <tr>
                 <td style="vertical-align: middle;text-align:center;" rowspan="4">Speaker 1</td>
+                <td style="vertical-align: middle;text-align:center;" rowspan="4">
+                  <audio controls style="width:190px">
+                    <source src="instruct/speaker1.wav"/>
+                  </audio>
+                </td>
                 <td style="vertical-align: middle;text-align:center;">愤怒、质问|怀疑伴侣不忠时的尖锐质问|"你心里难不成还有人？或者，你看上了今日的魏无勋？"</td>
                 <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker1/1.wav"/></audio></td>
               </tr>
@@ -233,37 +239,47 @@
               </tr>
               <tr>
                 <td style="vertical-align: middle;text-align:center;" rowspan="4">Speaker 2</td>
-                <td style="vertical-align: middle;text-align:center;">愤怒、质问|怀疑伴侣不忠时的尖锐质问|"你心里难不成还有人？或者，你看上了今日的魏无勋？"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker2/1.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;" rowspan="4">
+                  <audio controls style="width:190px">
+                    <source src="instruct/speaker2.wav"/>
+                  </audio>
+                </td>
+                <td style="vertical-align: middle;text-align:center;">惊喜|意外获得礼物|"天哪！我打开盒子一看，竟然是我最想要的那把剑！"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker2/01.wav"/></audio></td>
               </tr>
               <tr>
-                <td style="vertical-align: middle;text-align:center;">悲伤、咆哮|失去至亲时的崩溃哭喊|"小姐，你要是走了，我怎么办？我怎么办呢？"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker2/2.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">好奇|对未知事物或秘密的兴趣|"你是怎么做到让这个机器运转起来的？快教教我！"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker2/02.wav"/></audio></td>
               </tr>
               <tr>
-                <td style="vertical-align: middle;text-align:center;">悲伤、哀求|面对逝者时的绝望乞求|"寻儿，睁开眼看看我。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker2/3.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">兴奋、调侃|用幽默方式表达惊讶|"婀娜多姿的很，瞧那小脸蛋，哎呦，都是韩国回来的。"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker2/03.wav"/></audio></td>
               </tr>
               <tr>
-                <td style="vertical-align: middle;text-align:center;">懊恼、关切担心|为自己冲动行为后悔时的自责与担忧|"我刚刚当着他们，也就是乱说的，我只是气不过，想要替你出头。你怎么也跟着我乱来？"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker2/4.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">炫耀|展示优越条件时的得意|"没什么的啦，就是这个月刚买了辆法拉利跑车，没钱啦，不然就给叔叔买更好的礼物。"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker2/04.wav"/></audio></td>
               </tr>
               <tr>
                 <td style="vertical-align: middle;text-align:center;" rowspan="4">Speaker 3</td>
+                <td style="vertical-align: middle;text-align:center;" rowspan="4">
+                  <audio controls style="width:190px">
+                    <source src="instruct/speaker3.wav"/>
+                  </audio>
+                </td>
                 <td style="vertical-align: middle;text-align:center;">愤怒、质问|怀疑伴侣不忠时的尖锐质问|"你心里难不成还有人？或者，你看上了今日的魏无勋？"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker3/1.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker3/001.wav"/></audio></td>
               </tr>
               <tr>
-                <td style="vertical-align: middle;text-align:center;">无奈|评价家人缺点时的语气|"你姐不都这副德性吗，从小到大都这样。亲戚们都不喜欢她。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker3/2.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">悲伤、咆哮|失去至亲时的崩溃哭喊|"小姐，你要是走了，我怎么办？我怎么办呢？"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker3/002.wav"/></audio></td>
               </tr>
               <tr>
-                <td style="vertical-align: middle;text-align:center;">赞叹|对孩童可爱模样表达喜爱时的赞叹|"你这闺女也太可爱了吧！"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker3/3.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">悲伤、哀求|面对逝者时的绝望乞求|"寻儿，睁开眼看看我。"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker3/003.wav"/></audio></td>
               </tr>
               <tr>
-                <td style="vertical-align: middle;text-align:center;">懊恼、感慨|反思过往错误时的沉重|"其实一直以来，我都很后悔，当初选择跟她结了婚。既对不起你，也伤害了她。"</td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker3/4.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">懊恼、关切担心|为自己冲动行为后悔时的自责与担忧|"我刚刚当着他们，也就是乱说的，我只是气不过，想要替你出头。你怎么也跟着我乱来？"</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="instruct/qinyu-instruct/speaker3/004.wav"/></audio></td>
               </tr>
             </tbody>
           </table>
@@ -285,32 +301,32 @@
               <tr>
                 <td style="vertical-align: middle;text-align:center; white-space: nowrap;">Demo 1</td>
                 <td style="vertical-align: middle;text-align:left; padding: 15px;">
-                  就在李七夜陷入思考时，刚刚进入的群友已经忍不住发话了。<br><br>
+                  就在李七夜陷入思考时，刚刚进入的群友已经忍不住发话了。<br>
                   聊天群界面：<br>
                   【叶大仙】这是哪？我的外挂！？<br>
                   【叶大仙】钢铁侠！女帝！！哈哈哈哈哈哈！！我的外挂终于到了！<br>
                   【钢铁侠】什么东西？哪里来的投影技术？你怎么认识我？<br>
                   【独孤求败】这是哪！？你们都是什么人？<br>
-                  【波雅汉库克】：无礼之徒！究竟是谁的恶魔果实能力！居然敢对妾身出手！？<br><br>
+                  【波雅汉库克】：无礼之徒！究竟是谁的恶魔果实能力！居然敢对妾身出手！？<br>
                   看着众人的发言，眼珠子转了转开始思考起来。
                 </td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="long-chapter/qinyu-instruct/1.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="long-chapter/qinyu-instruct/01.wav"/></audio></td>
               </tr>
               <tr>
                 <td style="vertical-align: middle;text-align:center; white-space: nowrap;">Demo 2</td>
                 <td style="vertical-align: middle;text-align:left; padding: 15px;">
-                  方源循声望去，发现是中央的那桌，六个猎户围着桌子，已经喝得酒气熏天，气氛热烈如火，各个脸红脖子粗。<br><br>
+                  方源循声望去，发现是中央的那桌，六个猎户围着桌子，已经喝得酒气熏天，气氛热烈如火，各个脸红脖子粗。<br>
                   【角色1】"张老弟，来，再喝一杯！"<br>
                   【角色2】"峰大哥，兄弟们佩服你的本事，一个人就搞定一头黑皮野猪，真是好汉！这杯酒你必须得喝，不喝就是不给兄弟们面子。"<br>
                   【角色3】"谢兄弟们抬爱，但我实在喝不下了。"<br>
-                  【角色1】"峰大哥喝不下，是嫌弃这酒不好吗？小二，你过来，给爷几个上好酒！"<br><br>
-                  声音越来越大，很显然几个猎户都喝多了。<br><br>
+                  【角色1】"峰大哥喝不下，是嫌弃这酒不好吗？小二，你过来，给爷几个上好酒！"<br>
+                  声音越来越大，很显然几个猎户都喝多了。<br>
                   跑堂的小二连忙走过去：<br>
                   【角色4】"几位大哥，好酒是有，但是可有些贵呢。"<br>
-                  【角色1】"怎么，怕爷几个不给钱怎么的？！"<br><br>
+                  【角色1】"怎么，怕爷几个不给钱怎么的？！"<br>
                   猎户们听了这话，好几个都站起来，瞪向店小二。
                 </td>
-                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="long-chapter/qinyu-instruct/2.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="long-chapter/qinyu-instruct/02.wav"/></audio></td>
               </tr>
             </tbody>
           </table>

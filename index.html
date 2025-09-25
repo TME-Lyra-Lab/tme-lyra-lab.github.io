@@ -1051,7 +1051,7 @@
             <span class="author-block">QinYu Team</span>
           </div>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">TME Lyra Lab</span>
+            <span class="author-block">Lyra Lab, Tencent Music Entertainment Group</span>
           </div>
           <!-- 添加GitHub链接和图标 -->
           <div class="mt-4">
@@ -1077,38 +1077,14 @@
             <div class="mt-6">
               <h3 class="title is-5 has-text-centered">Contents</h3>
               <ul class="list-disc pl-6 mt-2">
-                <li><a href="#Paralanguage-TTS" class="link">Paralanguage Voice Generation</a></li>
                 <li><a href="#Instructed Voice Generation" class="link">Instructed Voice Generation</a></li>
                 <li><a href="#Text-to-Timbre" class="link">Text-to-Timbre</a></li>
-                <li><a href="#Audiobook Generation" class="link">Audiobook Generation</a></li>
-                <li><a href="#Podcast Generation" class="link">Podcast Generation</a></li> 
+                <li><a href="#Full-cast Audiobook Generation" class="link">Full-cast Audiobook Generation</a></li>
                 <li><a href="#Auto-Oral" class="link">Zero-Shot Auto-Oral Voice Generation</a></li> 
+                <li><a href="#Podcast Generation" class="link">Podcast Generation</a></li> 
               </ul>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="Paralanguage-TTS" class="section">
-    <div class="container-wider">
-      <div class="shadow-card">
-        <h2 class="title is-3 has-text-centered">Paralanguage Voice Generation</h2>
-        <div class="table-responsive">
-          <table class="table" style="border: 1px solid #e0e0e0; border-bottom: none; table-layout: auto;">
-            <thead>
-              <tr>
-                <th style="vertical-align: middle; width: 25%;">Text</th>
-                <th style="vertical-align: middle;">Prompt</th>
-                <th style="vertical-align: middle;">CosyVoice2</th>
-                <th style="vertical-align: middle;">GPT-SoVITS</th>
-                <th style="vertical-align: middle;">ChatTTS</th>
-                <th style="vertical-align: middle;">QinYu</th>
-              </tr>
-            </thead>
-            <tbody id="audioTableBody"></tbody>
-          </table>
         </div>
       </div>
     </div>
@@ -1122,7 +1098,7 @@
           <table class="table" style="border: 1px solid #e0e0e0; border-bottom: none; table-layout: auto;">
             <thead>
               <tr>
-                <th style="vertical-align: middle; width: 10%;">Speaker</th>
+                <!-- <th style="vertical-align: middle; width: 10%;">Speaker</th> -->
                 <th style="vertical-align: middle; width: 75%">Instruct</th>
                 <th style="vertical-align: middle; width: 15%">Generated</th>
               </tr>
@@ -1155,10 +1131,10 @@
     </div>
   </section>
 
-    <section id="Audiobook Generation" class="section">
+    <section id="Full-cast Audiobook Generation" class="section">
     <div class="container-wider">
       <div class="shadow-card">
-        <h2 class="title is-3 has-text-centered">Audiobook Generation</h2>
+        <h2 class="title is-3 has-text-centered">Full-cast Audiobook Generation</h2>
         <div class="table-responsive">
           <table class="table" style="border: 1px solid #e0e0e0; border-bottom: none; table-layout: auto;">
             <thead>
@@ -1173,6 +1149,28 @@
       </div>
     </div>
   </section>
+
+<section id="Auto-Oral" class="section">
+  <div class="container-wider">
+    <div class="shadow-card">
+      <h2 class="title is-3 has-text-centered">Zero-Shot Auto-Oral Voice Generation</h2>
+      <div class="table-responsive">
+        <table class="table" style="border: 1px solid #e0e0e0; border-bottom: none; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th style="vertical-align: middle; width: 52%;">Text</th>
+              <th style="vertical-align: middle; width: 12.5%;">Prompt</th>
+              <th style="vertical-align: middle; width: 12.5%;">F5-TTS</th>
+              <th style="vertical-align: middle; width: 12.5%;">CosyVoice2</th>
+              <th style="vertical-align: middle; width: 12.5%;">QinYu-Cast</th>
+            </tr>
+          </thead>
+          <tbody id="autooralTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="Podcast Generation" class="section">
   <div class="container-wider">
@@ -1199,23 +1197,12 @@
   </div>
 </section>
 
-<section id="Auto-Oral" class="section">
+<section id="Disclaimer" class="section">
   <div class="container-wider">
     <div class="shadow-card">
-      <h2 class="title is-3 has-text-centered">Zero-Shot Auto-Oral Voice Generation</h2>
-      <div class="table-responsive">
-        <table class="table" style="border: 1px solid #e0e0e0; border-bottom: none; table-layout: fixed; width: 100%;">
-          <thead>
-            <tr>
-              <th style="vertical-align: middle; width: 52%;">Text</th>
-              <th style="vertical-align: middle; width: 12.5%;">Prompt</th>
-              <th style="vertical-align: middle; width: 12.5%;">F5-TTS</th>
-              <th style="vertical-align: middle; width: 12.5%;">CosyVoice2</th>
-              <th style="vertical-align: middle; width: 12.5%;">QinYu-Cast</th>
-            </tr>
-          </thead>
-          <tbody id="autooralTableBody"></tbody>
-        </table>
+      <h2 class="title is-3 has-text-centered">Disclaimer</h2>
+      <div class="content has-text-justified"> </div>
+      The content presented above is solely for academic purposes and serves to showcase technical capabilities. It should be noted that some of the examples have been sourced from the internet. In the event that any of the content infringes upon your rights, we kindly request that you contact us promptly so that we can take appropriate measures to have it removed. We respect intellectual property rights and are committed to ensuring that all materials used are in compliance with relevant regulations. 
       </div>
     </div>
   </div>
@@ -1282,64 +1269,46 @@
           items: [
             { 
               number: 1,
-              instruct: "<b>愤怒、质问|怀疑伴侣不忠时的尖锐质问|</b>你心里难不成还有人？或者，你看上了今日的魏无勋？"
+              instruct: "<b>惊喜、兴奋|意外获得好消息|</b>真的吗？哈哈哈哈，看来我的运气不错！"
             },
             { 
               number: 2,
-              instruct: "<b>无奈|评价家人缺点时的语气|</b>你姐不都这副德性吗，从小到大都这样。亲戚们都不喜欢她。"
+              instruct: "<b>惊喜|意外获得礼物|</b>天哪！我打开盒子一看，竟然是我最想要的那把剑！"
             },
             { 
               number: 3,
-              instruct: "<b>遗憾惋惜|对晚辈婚姻选择的叹息|</b>我看顾雨泽啊，这辈子是不打算结婚了，给他介绍了好几个相亲对象，没一个看上的。"
+              instruct: "<b>好奇|对未知事物或秘密的兴趣|</b>你是怎么做到让这个机器运转起来的？快教教我！"
             },
             { 
               number: 4,
-              instruct: "<b>懊恼、关切担心|为自己冲动行为后悔时的自责与担忧|</b>我刚刚当着他们，也就是乱说的，我只是气不过，想要替你出头。你怎么也跟着我乱来？ "
-            }
-          ]
-        },
-        {
-          name: "speaker2",
-          items: [
-            { 
-              number: 1,
               instruct: "<b>愤怒、质问|怀疑伴侣不忠时的尖锐质问|</b>你心里难不成还有人？或者，你看上了今日的魏无勋？"
             },
             { 
-              number: 2,
+              number: 5,
+              instruct: "<b>严厉|宣示主权时的威胁|</b>好，是我冤枉你，可你以后要是还敢和今天这样和男人接触，我会更严重的惩罚你，听到了么？"
+            },
+            { 
+              number: 6,
+              instruct: "<b>紧张、害怕|面对权威时的慌乱|</b>世子，前几天我们说过的，我们……"
+            },
+            { 
+              number: 7,
               instruct: "<b>悲伤、咆哮|失去至亲时的崩溃哭喊|</b>小姐，你要是走了，我怎么办？我怎么办呢？"
             },
             { 
-              number: 3,
-              instruct: "<b>悲伤、哀求|面对逝者时的绝望乞求|</b>寻儿，睁开眼看看我。"
+              number: 8,
+              instruct: "<b>调侃|亲密接触后的调侃语气|</b>怎么样？愿意开口说话了？"
             },
             { 
-              number: 4,
-              instruct: "<b>懊恼、关切担心|为自己冲动行为后悔时的自责与担忧|</b>我刚刚当着他们，也就是乱说的，我只是气不过，想要替你出头。你怎么也跟着我乱来？ "
-            }
+              number: 9,
+              instruct: "<b>兴奋、调侃|用幽默方式表达惊讶|</b>婀娜多姿的很，瞧那小脸蛋，哎呦，都是韩国回来的。"
+            },
+            { 
+              number: 10,
+              instruct: "<b>炫耀|展示优越条件时的得意|</b>没什么的啦，就是这个月刚买了辆法拉利跑车，没钱啦，不然就给叔叔买更好的礼物。"
+            },
           ]
         },
-        {
-          name: "speaker3",
-          items: [
-            { 
-              number: 1,
-              instruct: "<b>愤怒、质问|怀疑伴侣不忠时的尖锐质问|</b>你心里难不成还有人？或者，你看上了今日的魏无勋？"
-            },
-            { 
-              number: 2,
-              instruct: "<b>无奈|评价家人缺点时的语气|</b>你姐不都这副德性吗，从小到大都这样。亲戚们都不喜欢她。"
-            },
-            { 
-              number: 3,
-              instruct: "<b>赞叹|对孩童可爱模样表达喜爱时的赞叹|</b>你这闺女也太可爱了吧！"
-            },
-            { 
-              number: 4,
-              instruct: "<b>懊恼、感慨|反思过往错误时的沉重|</b>其实一直以来，我都很后悔，当初选择跟她结了婚。既对不起你，也伤害了她。 "
-            }
-          ]
-        }
       ];
 
       const tableBody = document.getElementById("instructTableBody");
@@ -1347,27 +1316,18 @@
 
       // 遍历每个speaker，生成4行数据
       speakers.forEach(speaker => {
-        // 1. 生成speaker名称行（跨4行）
         const firstRow = document.createElement("tr");
         
-        // 第一列：speaker名称（固定跨4行）
-        const speakerCell = document.createElement("td");
-        speakerCell.rowSpan = 4;
-        speakerCell.className = "speaker-cell";
-        speakerCell.textContent = speaker.name;
-        firstRow.appendChild(speakerCell);
-        
-        // 第二列：instruct内容（第一行的instruct）
+        // instruct内容（第一行的instruct）
         const firstInstructCell = document.createElement("td");
         firstInstructCell.className = "instruct-cell";
         firstInstructCell.innerHTML = speaker.items[0].instruct;
         firstRow.appendChild(firstInstructCell);
         
-        // 音频列：路径格式 → instruct/qinyu-instruct/speakerX/N.wav（X为speaker名，N为1-4）
         const audioCellFirst = document.createElement("td");
         audioCellFirst.innerHTML = `
           <audio controls>
-            <source src="audios/${taskPrefix}/${model}/${speaker.name}/${speaker.items[0].number}.wav" type="audio/wav">
+            <source src="audios/${taskPrefix}/${model}/${speaker.items[0].number}.wav" type="audio/wav">
             浏览器不支持音频播放
           </audio>
         `;
@@ -1375,8 +1335,7 @@
         
         tableBody.appendChild(firstRow);
         
-        // 2. 生成剩余3行（共4行）
-        for (let i = 1; i < 4; i++) {
+        for (let i = 1; i < speaker.items.length; i++) {
           const row = document.createElement("tr");
           
           // 第二列：instruct内容
@@ -1389,7 +1348,7 @@
           const audioCell = document.createElement("td");
           audioCell.innerHTML = `
             <audio controls>
-              <source src="audios/${taskPrefix}/${model}/${speaker.name}/${speaker.items[i].number}.wav" type="audio/wav">
+              <source src="audios/${taskPrefix}/${model}/${speaker.items[i].number}.wav" type="audio/wav">
               浏览器不支持音频播放
             </audio>
           `;
@@ -1457,11 +1416,11 @@
         {
           category: "Middle-aged",
           items: [
-            {
-              tttPrompt: "该角色是一个<b>中年男性</b>，身份是王朝将军，性格铁血威严、霸气侧漏，气质不怒自威",
-              caPrompt: "<b>坚定|阵前发布指令时的呐喊|</b>\"三军听令！擂鼓，进军！后退者，斩！\"",
-              audioSrc: "audios/autobook/41.wav"
-            },
+            // {
+            //   tttPrompt: "该角色是一个<b>中年男性</b>，身份是王朝将军，性格铁血威严、霸气侧漏，气质不怒自威",
+            //   caPrompt: "<b>坚定|阵前发布指令时的呐喊|</b>\"三军听令！擂鼓，进军！后退者，斩！\"",
+            //   audioSrc: "audios/autobook/41.wav"
+            // },
             // {
             //   tttPrompt: "该角色是一个中年男性，身份是山村猎户/农夫，性格朴实憨厚、沉默寡言，气质质朴善良",
             //   caPrompt: "关切|拒绝陌生人时的缓慢回应|\"山里？不去不去。那林子邪乎，城里人莫要去送死。\"",
@@ -1472,11 +1431,11 @@
             //   caPrompt: "嘲讽|嘲讽对手时的冷笑|\"就这点本事也敢来？你的毒，给我家狗当洗脚水都不配！\"",
             //   audioSrc: "audios/autobook/56.wav"
             // },
-            // {
-            //   tttPrompt: "该角色是一个中年女性，身份是丧夫寡妇/孤母，性格忧郁坚韧、撑家计，气质悲苦却倔强",
-            //   caPrompt: "悲伤|丧亲后的泣诉|\"你个死鬼… 丢下我们娘俩… 但我会撑下去的… 一定……\"",
-            //   audioSrc: "audios/autobook/59.wav"
-            // }
+            {
+              tttPrompt: "该角色是一个<b>中年女性</b>，身份是丧夫寡妇/孤母，性格忧郁坚韧、撑家计，气质悲苦却倔强",
+              caPrompt: "<b>悲伤|丧亲后的泣诉|</b>\你个死鬼… 丢下我们娘俩… 但我会撑下去的… 一定……",
+              audioSrc: "audios/autobook/59.wav"
+            }
           ]
         },
         {
@@ -1585,53 +1544,105 @@
       });
     })();
 
-    (function() {
-      const tasks = ["audiobook"];
-      const texts = [
-        { content: "就在李七夜陷入思考时，刚刚进入的群友已经忍不住发话了。聊天群界面：【叶大仙】这是哪？我的外挂！？【叶大仙】钢铁侠！女帝！！哈哈哈哈哈哈！！我的外挂终于到了！【钢铁侠】什么东西？哪里来的投影技术？你怎么认识我？【独孤求败】这是哪！？你们都是什么人？【波雅汉库克】：无礼之徒！究竟是谁的恶魔果实能力！居然敢对妾身出手！？看着众人的发言，眼珠子转了转开始思考起来。", number: "1" },
+(function() {
+    const tasks = ["audiobook"];
+    const texts = [
+        { content: "就在李七夜陷入思考时，刚刚进入的群友已经忍不住发话了。聊天群界面：【叶大仙】这是哪？我的外挂！？【叶大仙】钢铁侠！女帝！！哈哈哈哈哈哈！！我的外挂终于到了！【钢铁侠】什么东西？哪里来的投影技术？你怎么认识我？【独孤求败】这是哪！？你们都是什么人？【波雅汉库克】无礼之徒！究竟是谁的恶魔果实能力！居然敢对妾身出手！？看着众人的发言，眼珠子转了转开始思考起来。", number: "1" },
         { content: "方源循声望去，发现是中央的那桌，六个猎户围着桌子，已经喝得酒气熏天，气氛热烈如火，各个脸红脖子粗。【角色1】张老弟，来，再喝一杯！【角色2】峰大哥，兄弟们佩服你的本事，一个人就搞定一头黑皮野猪，真是好汉！这杯酒你必须得喝，不喝就是不给兄弟们面子。【角色3】谢兄弟们抬爱，但我实在喝不下了。【角色1】峰大哥喝不下，是嫌弃这酒不好吗？小二，你过来，给爷几个上好酒！声音越来越大，很显然几个猎户都喝多了。跑堂的小二连忙走过去：【角色4】几位大哥，好酒是有，但是可有些贵呢。【角色1】怎么，怕爷几个不给钱怎么的？！猎户们听了这话，好几个都站起来，瞪向店小二。他们不是五大三粗，身材魁梧，就是黑瘦粗壮，精悍逼人，带着山民特有的彪悍之气。", number: "2" },
-      ];
-      const models = ["qinyu-instruct"];
+    ];
+    const models = ["qinyu-instruct"];
 
-      // 确保DOM加载完成后获取容器
-      const tableBody = document.getElementById("audiobookTableBody");
-      if (!tableBody) return; // 防止容器不存在导致报错
+    // 确保DOM加载完成后获取容器
+    const tableBody = document.getElementById("audiobookTableBody");
+    if (!tableBody) return; // 防止容器不存在导致报错
 
-      tasks.forEach(task => {
+    // 处理换行的函数 - 按照参考示例的格式规则
+    function formatTextWithLineBreaks(text) {
+        let formatted = text;
+        return formatted;
+    }
+
+    tasks.forEach(task => {
         texts.forEach((text, textIndex) => {
-          const row = document.createElement("tr");
-          const isLastRow = textIndex === texts.length - 1 && task === tasks[tasks.length - 1];
-          const borderStyle = isLastRow ? "border: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0 !important;" : "border: 1px solid #e0e0e0;";
+            const row = document.createElement("tr");
+            const isLastRow = textIndex === texts.length - 1 && task === tasks[tasks.length - 1];
+            const borderStyle = isLastRow ? "border: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0 !important;" : "border: 1px solid #e0e0e0;";
 
-          // 文本列
-          const textCell = document.createElement("td");
-          textCell.style = `${borderStyle} vertical-align: middle; width: 25%; word-break: break-all; padding: 8px;`;
-          textCell.innerHTML = text.content;
-          row.appendChild(textCell);
+            // 文本列 - 使用新的换行处理函数，并设置两端对齐
+            const textCell = document.createElement("td");
+            textCell.style = `${borderStyle} vertical-align: middle; width: 25%; word-break: break-all; padding: 15px; text-align: justify;`;
+            textCell.innerHTML = formatTextWithLineBreaks(text.content);
+            row.appendChild(textCell);
 
-          // 音频列
-          models.forEach((model, modelIndex) => {
-            const audioCell = document.createElement("td");
-            const cellStyle = `${borderStyle} vertical-align: middle; padding: 8px;`;
-            audioCell.style = cellStyle;
+            // 音频列 - 保持居中对齐（音频控件通常居中显示更美观）
+            models.forEach((model, modelIndex) => {
+                const audioCell = document.createElement("td");
+                const cellStyle = `${borderStyle} vertical-align: middle; padding: 8px; text-align: center;`;
+                audioCell.style = cellStyle;
 
-            audioCell.innerHTML = `
-              <audio controls>
+                audioCell.innerHTML = `
+              <audio controls style="width:190px">
                 <source src="audios/${task}/${model}/${text.number}.wav" type="audio/wav">
                 浏览器不支持音频播放
-             </audio>
+              </audio>
             `;
-            row.appendChild(audioCell);
-          });
+                row.appendChild(audioCell);
+            });
 
-          tableBody.appendChild(row);
+            tableBody.appendChild(row);
         });
+    });
+})();
+
+(function() {
+    const task = "Auto-Oral"; // 只有一个任务，使用单个变量
+    const models = ["Prompt", "F5-TTS", "CosyVoice2", "QinYuCast"];
+    const texts = [
+      { content: "等等，大额存单的什么？听着好专业的样子。", number: "1" },
+      { content: "这个案例，太典型了。P2P本质是个人借贷平台，早已因为高违约率被市场淘汰。", number: "2" },
+      { content: "很多人急用钱时才发现要交高额罚金，最后永远保留应急资金，建议至少存六个月生活费在活期账户。", number: "3" },
+    ];
+
+    // 确保DOM加载完成后执行
+    document.addEventListener('DOMContentLoaded', function() {
+      const tableBody = document.getElementById("autooralTableBody");
+      if (!tableBody) return;
+
+      // 为每个文本创建一行
+      texts.forEach((text, index) => {
+        const row = document.createElement("tr");
+        // 判断是否为最后一行
+        const isLastRow = index === texts.length - 1;
+        const borderStyle = isLastRow ? "border: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0 !important;" : "border: 1px solid #e0e0e0;";
+
+        // 创建文本单元格（第一列）
+        const textCell = document.createElement("td");
+        textCell.style = `${borderStyle} vertical-align: middle; padding: 8px;`;
+        textCell.textContent = text.content;
+        row.appendChild(textCell);
+
+        // 为每个模型创建音频单元格
+        models.forEach(model => {
+          const audioCell = document.createElement("td");
+          audioCell.style = `${borderStyle} vertical-align: middle; padding: 8px; text-align: center;`;
+
+          audioCell.innerHTML = `
+            <audio controls style="width: 100%; max-width: 200px;">
+              <source src="audios/${task}/${model}/${text.number}.wav" type="audio/wav">
+              浏览器不支持音频播放
+            </audio>
+          `;
+          row.appendChild(audioCell);
+        });
+
+        tableBody.appendChild(row);
       });
-    })();
+    });
+  })();
 
 (function() {
     const tasks = ["QinYuCast"];
-    const indexs = ["1", "2"]; // 使用索引数组替代文本数组
+    const indexs = ["2"]; // 使用索引数组替代文本数组
     const models = ["Prompt1", "Prompt2", "MOSS-TTSD", "Doubao", "VibeVoiceLarge", "QinYuCast"];
 
     // 确保DOM加载完成后执行
@@ -1734,52 +1745,6 @@
     });
   })();
 
-  (function() {
-    const task = "Auto-Oral"; // 只有一个任务，使用单个变量
-    const models = ["Prompt", "F5-TTS", "CosyVoice2", "QinYuCast"];
-    const texts = [
-      { content: "等等。大额存单的什么？听着好专业的样子。", number: "1" },
-      { content: "这个案例，太典型了。P to P本质是个人借贷平台，早已因为高违约率被市场淘汰。", number: "2" },
-      { content: "很多人急用钱时才发现要交高额罚金，最后，永远保留应急资金，建议至少存六个月生活费在活期账户。", number: "3" },
-      { content: "说到这个，我深有体会，去年家里突然需要钱，被迫卖掉还没回本的基金，白白损失了手续费。", number: "4" },
-    ];
-
-    // 确保DOM加载完成后执行
-    document.addEventListener('DOMContentLoaded', function() {
-      const tableBody = document.getElementById("autooralTableBody");
-      if (!tableBody) return;
-
-      // 为每个文本创建一行
-      texts.forEach((text, index) => {
-        const row = document.createElement("tr");
-        // 判断是否为最后一行
-        const isLastRow = index === texts.length - 1;
-        const borderStyle = isLastRow ? "border: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0 !important;" : "border: 1px solid #e0e0e0;";
-
-        // 创建文本单元格（第一列）
-        const textCell = document.createElement("td");
-        textCell.style = `${borderStyle} vertical-align: middle; padding: 8px;`;
-        textCell.textContent = text.content;
-        row.appendChild(textCell);
-
-        // 为每个模型创建音频单元格
-        models.forEach(model => {
-          const audioCell = document.createElement("td");
-          audioCell.style = `${borderStyle} vertical-align: middle; padding: 8px; text-align: center;`;
-
-          audioCell.innerHTML = `
-            <audio controls style="width: 100%; max-width: 200px;">
-              <source src="audios/${task}/${model}/${text.number}.wav" type="audio/wav">
-              浏览器不支持音频播放
-            </audio>
-          `;
-          row.appendChild(audioCell);
-        });
-
-        tableBody.appendChild(row);
-      });
-    });
-  })();
   </script>
 
 
@@ -1814,9 +1779,12 @@
 
 </body>
 </html>
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 >>>>>>> a5817b4 (Update index.html)
 =======
 
 >>>>>>> f1622d2 (Update index.html)
+=======
+>>>>>>> aa4e371 (update index)
