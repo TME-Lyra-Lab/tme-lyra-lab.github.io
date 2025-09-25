@@ -2,4 +2,4 @@ QinYu is an open-source project for voice generation models from Lyra Lab, Tence
 
 QinYu: [https://tme-lyra-lab.github.io](https://tme-lyra-lab.github.io/)
 
-DeepDubbing: [https://tmelyra-lab.github.io/DeepDubbing](https://tmelyra-lab.github.io/DeepDubbing)
+DeepDubbing: [https://github.com/TME-Lyra-Lab/DeepDubbing](https://github.com/TME-Lyra-Lab/DeepDubbing)
