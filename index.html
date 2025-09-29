@@ -267,13 +267,11 @@
         <table class="table" style="border: 1px solid #e0e0e0; border-bottom: none; table-layout: fixed; width: 100%;">
           <thead>
             <tr>
-              <!-- 为每个表头设置相同宽度（6列各占16.67%） -->
-              <th style="vertical-align: middle; width: 16.67%;">Prompt 1</th>
-              <th style="vertical-align: middle; width: 16.67%;">Prompt 2</th>
-              <th style="vertical-align: middle; width: 16.67%;">MOSS-TTSD</th>
-              <th style="vertical-align: middle; width: 16.67%;">Doubao(豆包)</th>
-              <th style="vertical-align: middle; width: 16.67%;">VibeVoice Large</th>
-              <th style="vertical-align: middle; width: 16.67%;">QinYu-Cast</th>
+              <th style="vertical-align: middle; width: 20%;">Prompt 1</th>
+              <th style="vertical-align: middle; width: 20%;">Prompt 2</th>
+              <th style="vertical-align: middle; width: 20%;">MOSS-TTSD</th>
+              <th style="vertical-align: middle; width: 20%;">VibeVoice Large</th>
+              <th style="vertical-align: middle; width: 20%;">QinYu-Cast</th>
             </tr>
           </thead>
           <tbody id="podcastTableBody"></tbody>
@@ -457,21 +455,21 @@
             //   caPrompt: "斩钉截铁|被质疑时的直白辩解|\"我没说谎！这就是我看到的样子！你不信就算了！\"",
             //   audioSrc: "audios/autobook/1.wav"
             // },
-            // {
-            //   tttPrompt: "该角色是一个幼儿女性，身份是世家千金，性格活泼机敏、爱撒娇，气质天真灵动。",
-            //   caPrompt: "撒娇|向长辈讨要东西时的快语|\"娘亲娘亲！你看那个糖人，翅膀亮晶晶的！给我买一个嘛～\"",
-            //   audioSrc: "audios/autobook/2.wav"
-            // },
+            {
+              tttPrompt: "该角色是一个幼儿女性，身份是世家千金，性格活泼机敏、爱撒娇，气质天真灵动。",
+              caPrompt: "撒娇|向长辈讨要东西时的快语|\"娘亲娘亲！你看那个糖人，翅膀亮晶晶的！给我买一个嘛～\"",
+              audioSrc: "audios/autobook/2.wav"
+            },
             // {
             //   tttPrompt: "该角色是一个幼儿女性，身份是绣坊小徒，性格耐心细致、指尖灵巧，气质娴静乖巧。",
             //   caPrompt: "思考|做手工时的轻柔自语|\"一针… 一线… 要绣得整整齐齐的，师父才会夸我。\"",
             //   audioSrc: "audios/autobook/3.wav"
             // },
-            {
-              tttPrompt: "该角色是一个<b>幼儿女性</b>，身份是小郡主/公主，性格骄慢却善良、爱助人，气质高贵带娇憨。",
-              caPrompt: "<b>关切|看到他人困难时的别扭关心|</b>\"哼，你怎么这么笨！这点事都做不好，我… 我帮你就是了！\"",
-              audioSrc: "audios/autobook/4.wav"
-            }
+            // {
+            //   tttPrompt: "该角色是一个<b>幼儿女性</b>，身份是小郡主/公主，性格骄慢却善良、爱助人，气质高贵带娇憨。",
+            //   caPrompt: "<b>关切|看到他人困难时的别扭关心|</b>\"哼，你怎么这么笨！这点事都做不好，我… 我帮你就是了！\"",
+            //   audioSrc: "audios/autobook/4.wav"
+            // }
           ]
         },
         {
@@ -745,28 +743,6 @@
           const borderStyle = isLastRow ? "border: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0 !important;" : "border: 1px solid #e0e0e0;";
 
           models.forEach(model => {
-            // 豆包列特殊处理：只在第一行创建，合并两行，且只放1.wav
-            if (model === "Doubao") {
-              // 只在第一行创建豆包单元格
-              if (indexNum === 0) {
-                const audioCell = document.createElement("td");
-                // 设置合并两行
-                audioCell.rowSpan = 2;
-                const cellStyle = `${borderStyle} vertical-align: middle; padding: 8px;`;
-                audioCell.style = cellStyle;
-
-                // 只放1.wav
-                audioCell.innerHTML = `
-                  <audio controls>
-                    <source src="audios/${task}/${model}/1.wav" type="audio/wav">
-                    浏览器不支持音频播放
-                  </audio>
-                `;
-                row.appendChild(audioCell);
-              }
-              // 第二行不创建豆包单元格
-            } else {
-              // 其他模型正常处理
               const audioCell = document.createElement("td");
               const cellStyle = `${borderStyle} vertical-align: middle; padding: 8px;`;
               audioCell.style = cellStyle;
@@ -778,7 +754,6 @@
                 </audio>
               `;
               row.appendChild(audioCell);
-            }
           });
 
           tableBody.appendChild(row);
@@ -866,3 +841,4 @@
 
 </body>
 </html>
+
