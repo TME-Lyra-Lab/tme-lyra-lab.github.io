@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VITA-QinYu: Expressive Spoken Language Model for Role-Playing and Singing">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="custom.css">
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <title>VITA-QinYu: Expressive Spoken Language Model for Role-Playing and Singing</title>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Roboto', Arial, sans-serif; font-size: 1.0rem; font-weight: 400; }
+    header h1 { font-weight: 700; }
+    .doc-links a { margin: 0 6px; font-size: 0.95rem; }
+    .page-wrap { max-width: 1360px; margin-top: 2.5rem; margin-bottom: 2.5rem; padding-left: 0; padding-right: 0; }
+    .section-card { background: #fff; padding: 2rem !important; margin-top: 1.5rem !important; margin-bottom: 1.5rem !important; }
+    .section-card h2 { font-size: 1.5rem; margin-top: 0; margin-bottom: .75rem; }
+    .page-title { font-size: 1.75rem; margin-top: 0; margin-bottom: .75rem; }
+    .doc-links { margin-top: .25rem; margin-bottom: .5rem; }
+    .section-card p { line-height: 1.6; margin-bottom: .8rem; }
+    @media (max-width: 576px) {
+      body { font-size: 1rem; }
+      .page-wrap { margin-top: 1.5rem; margin-bottom: 1.5rem; padding-left: 0.5rem; padding-right: 0.5rem; }
+      .section-card { padding: 1.25rem !important; margin-top: 1rem !important; margin-bottom: 1rem !important; }
+      .section-card h2 { font-size: 1.35rem; }
+      .page-title { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container page-wrap">
+  <header role="banner">
+  </header>
+  <main role="main">
+    <article itemscope itemtype="https://schema.org/BlogPosting">
+
+      <div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded section-card">
+        <div class="text-center">
+          <h2 class="page-title">VITA-QinYu: Expressive Spoken Language Model for Role-Playing and Singing</h2>
+          <div class="doc-links mt-2">
+            [<a href="https://arxiv.org/abs/2509.15845" target="_blank">Paper</a>]
+            [<a href="https://github.com/TME-Lyra-Lab/DeepDubbing" target="_blank">Code</a>]
+          </div>
+          <p class="fst-italic mb-0">
+            <br>
+            VITA Team & QinYu Team
+          <p></p>
+          </p>
+          <p><b>Tencent</b></p>
+        </div>
+        <p><b>Abstract:</b>
+        Recent end-to-end (E2E) spoken language models (SLM) have made substantial progress in natural conversation, responding to user requests with accuracy and fluency. In real-world interactions, however, human speech is more expressive than an exchange of linguistic information and conveys personality, mood, or performance elements, such as comforting tone or humming a song. We formalize these behaviors as role-playing and singing capabilities for AI assistants and present VITA-QinYu, the first E2E SLM capable of expressive speech generation that goes beyond correctness and naturalness to support both role-playing and singing. VITA-QinYu adopts a hyprid speech- text modeling paradigm that models interleaved text-audio sequences, with audio represented via multi-codebook tokens stacked in parallel. This design enables richer paralinguistic encoding through multi-codebook representations while maintaining a clear separation between audio and text representations to avoid mutual interference. We develop a comprehensive data generation pipeline to synthesize fluent and expressive natural conversation, singing and role-playing data. Objective benchmarks and subjective evaluations demonstrate that VITA-QinYu achieves state-of-the-art accuracy and fluency in natural conversation, as well as superior expressiveness in role-playing and singing. We open-source our code and models and provide a easy-to-use web demo with full frontend and backend support for streaming and full-duplex interaction.
+        </p>
+        <p style="text-align: center;">
+          <img src="static/images/model.png" style="max-width:100%; height:auto;" alt="model diagram">
+        </p>
+        <div style="margin-top: 2rem;">
+          <p style="margin-bottom: 1rem;"><b>Main contributions:</b></p>
+          <ol style="line-height: 1.8; margin-bottom: 1.5rem;">
+            <li style="margin-bottom: 1rem;">We introduce VITA-QINYU , the first end-to-end spoken language model with a hybrid text–speech modeling paradigm, capable of not only natural conversation but also expressive role-playing and singing.</li>
+            <li style="margin-bottom: 1rem;">We construct large-scale high-quality datasets for role-playing and singing, addressing key gaps in expressive speech modeling.</li>
+            <li style="margin-bottom: 1rem;">We demonstrate state-of-the-art performance of VITA-QINYU in naturalness, informative and expressive speech generation, validated through objective benchmarks and subjective assessments.
+</li>
+          </ol>
+        </div>
+
+        <p class="mt-4">
+          <b>Contents</b>
+          <ul>
+            <li><a href="#Dialogue-Demo">Dialogue Demo</a></li>
+            <li><a href="#Role-Playing">Role-Playing</a></li>
+            <li><a href="#Singing">Singing</a></li>
+          </ul>
+        </p>
+      </div>
+
+
+    <div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded section-card">
+        <h2 id="Dialogue-Demo" style="text-align: center;">Dialogue Demo</h2>
+        <div class="table-responsive pt-3">
+          <table class="table table-hover pt-2">
+            <thead>
+              <tr>
+                <th style="vertical-align: middle;text-align: center">ALL Scenario</th>
+                <th style="vertical-align: middle;text-align: center">Natural Dialogue</th>
+                <th style="vertical-align: middle;text-align: center">Singing</th>
+                <th style="vertical-align: middle;text-align: center">RolePlay-1</th>
+                <th style="vertical-align: middle;text-align: center">RolePlay-2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;">
+                  <video width="200" controls poster="video/video.jpg" ><source src="video/合并版本.mp4" type="video/mp4"></video>
+                </td>
+                <td style="vertical-align: middle;text-align:center;">
+                  <video width="200" controls poster="video/video.jpg" ><source src="video/自然对话.mp4" type="video/mp4"></video>
+                </td>
+                  <td style="vertical-align: middle;text-align:center;">
+                  <video width="200" controls poster="video/video.jpg" ><source src="video/哼唱能力.mp4" type="video/mp4"></video>
+                </td>
+                <td style="vertical-align: middle;text-align:center;">
+                  <video width="200" controls poster="video/video.jpg" ><source src="video/千金小姐.mp4" type="video/mp4"></video>
+                </td>
+                <td style="vertical-align: middle;text-align:center;">
+                  <video width="200" controls poster="video/video.jpg" ><source src="video/穿越青年.mp4" type="video/mp4"></video>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded section-card">
+        <h2 id="Singing" style="text-align: center;">Singing</h2>
+        <div class="table-responsive pt-3">
+          <table class="table table-hover pt-2">
+            <thead>
+              <tr>
+                <th style="vertical-align: middle;text-align: center" colspan="2">Question</th>
+                <th style="vertical-align: middle;text-align: center">Audio</th>
+                <th style="vertical-align: middle;text-align: center">Answer</th>
+                <th style="vertical-align: middle;text-align: center">Audio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;" colspan="2">就唱左边的副歌，贼好听！</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/singing/13ce77cf-2ff2-4908-a222-3f09e0cdcbad_question.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">你不曾发觉,你总是用右手牵着我,但是心却跳动在左边......</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/singing/13ce77cf-2ff2-4908-a222-3f09e0cdcbad_answer.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;" colspan="2">来一段麦芽糖的副歌！</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/singing/30e2b158-e213-464c-a2f3-a37132349b1f_question.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">我牵着你的手经过,种麦芽糖的山坡, 香浓的诱惑, 你脸颊微热吐气在我的耳朵......</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/singing/30e2b158-e213-464c-a2f3-a37132349b1f_answer.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;" colspan="2">来一首比较爱的主歌，不要副歌</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/singing/c0260d27-209e-4bd1-8626-c801571fbd07_question.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">别说了,再说我就要哭了, 总之我是一个人, 默默走回家, 又静静关了灯, 是否该提醒你祝我生日更快乐......</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/singing/c0260d27-209e-4bd1-8626-c801571fbd07_answer.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;" colspan="2">劳驾你唱一下那个男人的副歌内容</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/singing/d2d7d1dc-d745-4fac-a2e3-5c1a14026619_question.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">还需要多久 多长 多伤, 你才会听见他 没说的话, 坚强像谎言一样, 不过是一种伪装, 他只希望有个机会能被你爱上......</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/singing/d2d7d1dc-d745-4fac-a2e3-5c1a14026619_answer.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;" colspan="2">唱一首晴天</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/singing/唱一首晴天.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">刮风这天, 我试过握着你手，但偏偏雨渐渐，大到我看你不见，还要多久，我才能在你身边，等到放晴的那天，也许我会比较好一点......</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/singing/晴天.wav"/></audio></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+      <div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded section-card">
+        <h2 id="Role-Playing" style="text-align: center;">Role-Playing</h2>
+        <div class="table-responsive pt-3">
+          <table class="table table-hover pt-2">
+            <thead>
+              <tr>
+                <th style="vertical-align: middle;text-align: center" colspan="1">Character</th>
+                <th style="vertical-align: middle;text-align: center">User Input</th>
+                <th style="vertical-align: middle;text-align: center">Audio</th>
+                <th style="vertical-align: middle;text-align: center">Character Reply</th>
+                <th style="vertical-align: middle;text-align: center">Audio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;" colspan="1">该角色是一个幼儿女性，身份是世家干金，性格活泼机敏、爱撒娇，气质天真灵动，音色甜润，语速较快</td>
+                <td style="vertical-align: middle;text-align:center;">那你爹爹知道会担心的吧?</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/roleplay/8075a488-441f-4076-8367-49596ffe3ee2_question_0.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">嘘..小声点爸爸最讨厌别人管我了，不过你要是敢告诉爸爸，我就把风筝藏起来</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/roleplay/8075a488-441f-4076-8367-49596ffe3ee2_answer_0.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;" colspan="1">该角色是一个青年女性，身份是亡国公主，性格外柔内刚，隐忍坚韧。气质忧郁高贵，音色柔美带哀愁</td>
+                <td style="vertical-align: middle;text-align:center;">那一场战争你一定很痛苦吧！</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/roleplay/2591a80b-11fd-4f3e-927d-70a9654c13f2_question_0.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">痛楚早已麻木，只是看着父皇白发苍苍，心里空唠唠的。</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/roleplay/2591a80b-11fd-4f3e-927d-70a9654c13f2_answer_0.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;" colspan="1">该角色是一个中年女性，身份是隐居高手/毒师，性格古怪孤僻、手段狠辣，气气质阴郁危险，音色尖锐，语调刻薄</td>
+                <td style="vertical-align: middle;text-align:center;"> 听说你是个用毒高手，能帮我看看这瓶药有什么问题吗？</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/roleplay/f2e000cc-c6b3-43e6-8bab-ed033326d6e1_question_0.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">哼！就这破药，连三岁小孩都不敢碰，你确定要试吗</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/roleplay/f2e000cc-c6b3-43e6-8bab-ed033326d6e1_answer_0.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;" colspan="1">该角色是一个老年女性，身份是少数民族族母/祭司，性格威严神秘、守传统，气质古朴肃穆，音色苍老沙呼、带吟唱韵</td>
+                <td style="vertical-align: middle;text-align:center;">可是我还是不太明白 他们到低想说什么?</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/roleplay/54755a33-dcba-47db-9834-0c675420b5ed_question_0.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">孩子有些话不必说破，记住心要静,  神要诚</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/roleplay/54755a33-dcba-47db-9834-0c675420b5ed_answer_0.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;" colspan="1">该角色是一个青年男性，身份是穿越者/现代灵魂，性格跳脱吐槽、偶尔迷茫，气质违和，音色自然，带现代口语</td>
+                <td style="vertical-align: middle;text-align:center;">喂！你怎么出现在这里？</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/roleplay/0396d12c-e1db-4fab-b4fd-79f9905c53cd_question_0.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">这还用问，我穿越来啦，一穿越就迷路了，导航都看不清</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/roleplay/0396d12c-e1db-4fab-b4fd-79f9905c53cd_answer_0.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;" colspan="1">该角色是一个老年男性，身份是扫地僧/隐世高人，性格与世无争、看破红尘，气质返璞归真，音色平和淡然，似耳语 </td>
+                <td style="vertical-align: middle;text-align:center;">大师，我最近总是心浮气躁，难以静下心来，你能指点一二吗?</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/roleplay/385ca3de-0f6d-444a-bb0a-23f8de8ebdb7_question_0.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">扫地僧扫地，扫的是尘土，扫心，心也如这扫帚一般，要扫干净才能看清来路。</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/roleplay/385ca3de-0f6d-444a-bb0a-23f8de8ebdb7_answer_0.wav"/></audio></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;text-align:center;" colspan="1">该角色是一个无默认性别，身份是AT/系统精灵，性格绝对理性、 循逻辑，气质机械非人，音色合成感，无情绪起伏</td>
+                <td style="vertical-align: middle;text-align:center;">如果我故意连续输入错误呢？</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/roleplay/f8e90713-b400-414f-a172-de9dc6766770_question_0.wav"/></audio></td>
+                <td style="vertical-align: middle;text-align:center;">系统将进入纠正模式，持续三十秒，建议避免无效操作。</td>
+                <td style="vertical-align: middle;text-align:center;"><audio controls style="width:190px"><source src="audio/roleplay/f8e90713-b400-414f-a172-de9dc6766770_answer_0.wav"/></audio></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    
+      <div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded section-card">
+        <h2 style="text-align: center;">Disclaimer</h2>
+        <p>The content provided above is for academic purposes only and is intended to demonstrate technical capabilities. Some examples are sourced from the internet. If any content infringes on your rights, please contact us to request its removal.</p>
+      </div>
+
+    </article>
+  </main>
+  </div>
+
+  </body>
+  </html>
